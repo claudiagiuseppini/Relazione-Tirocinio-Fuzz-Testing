@@ -1,0 +1,8 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduzione}{1}{chapter.1}%
+\contentsline {paragraph}{Obiettivi}{1}{section*.2}%
+\contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Metodologia}{5}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Risultati}{7}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusione}{9}{chapter.5}%

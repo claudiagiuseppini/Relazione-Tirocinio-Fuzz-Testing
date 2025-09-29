@@ -1,0 +1,53 @@
+\documentclass[italian,twoside,binding=0.6cm]{sapthesis}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage{babel}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={Ricerca di vulnerabilità con fuzz testing},
+  pdfauthor={Claudia Giuseppini}
+}
+
+\title{Ricerca di vulnerabilità con fuzz testing}
+\author{Claudia Giuseppini}
+\IDnumber{2069387}
+\course{Corso di Laurea in Ingegneria Informatica e Automatica}
+\courseorganizer{Facoltà di Ingegneria dell'Informazione, Informatica e Statistica}
+\AcademicYear{2024/2025}
+\advisor{Prof. Daniele Cono D'Elia}
+\coadvisor{Ing. Matteo Marini}
+\copyyear{2025}
+\authoremail{giuseppini.2069387@studenti.uniroma1.it}
+
+
+
+\begin{document}
+
+\frontmatter 
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\tableofcontents
+
+\mainmatter
+\input{capitoli/Introduzione.tex}
+\input{capitoli/Background.tex}
+\input{capitoli/Metodologia.tex}
+\input{capitoli/Risultati.tex}
+\input{capitoli/Conclusione.tex}
+
+\backmatter % parti finali
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{sapthesis}
+\bibliography{bibliografia}
+
+\end{document}

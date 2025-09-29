@@ -8,14 +8,13 @@ Background
 		    QMSan
 		    Valgrind
     Fuzzing
-		    AFL++
+		AFL++
         Fuzzer Test Suite
-	      Oss-Fuzz
-	  Combinazione Sanitizers e Fuzzing
+	    Oss-Fuzz
 Metodologia
     Configurazione dell’ambiente
-	      Sviluppo
-	  Deduplication e categorizzazione
+	Sviluppo
+	Deduplication e categorizzazione
 Risultati
 Conclusione
 Bibliografia
