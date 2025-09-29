@@ -1,0 +1,21 @@
+Abstract
+Introduzione
+    Obiettivi
+Background
+    Bug e Vulnerabilità
+    Sanitizer
+		    Msan
+		    QMSan
+		    Valgrind
+    Fuzzing
+		    AFL++
+        Fuzzer Test Suite
+	      Oss-Fuzz
+	  Combinazione Sanitizers e Fuzzing
+Metodologia
+    Configurazione dell’ambiente
+	      Sviluppo
+	  Deduplication e categorizzazione
+Risultati
+Conclusione
+Bibliografia
