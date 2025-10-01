@@ -1,1 +1,129 @@
 \chapter{Metodologia}
+
+Questo capitolo descrive le pratiche utilizzate durante lo svolgimento di questo tirocinio. Nella prima parte, delineo l'ambiente di lavoro e spiego come riprodurlo; Nella seconda sezione sono descritte le campagne di fuzzing che sono state eseguite, insieme agli strumenti e ai parametri necessari; Infine, illustro il processo utilizzato per discriminare e raggruppare i crash trovati, che include i metodi di triaging e deduplicazione.
+
+\section{Configurazione dell'Ambiente}
+
+Tutti i test sono stati eseguiti su macchine virtuali personali con Ubuntu 22.04.4 LTS. L’ambiente sperimentale impiegato comprende, oltre agli strumenti già citati, i seguenti componenti: Docker, Valgrind, Python e GDB. La scelta di utilizzare Docker come ambiente è soprattutto legata alla riproducibilità dei test, possiamo così controllare che non ci siano variazioni tra macchine diverse. L’infrastruttura di test è stata realizzata mediante più Dockerfile distinti, ciascuno predisposto per una parte specifica del workflow di fuzzing e analisi, in particolare in tre sezioni:
+
+\begin{itemize}
+    \item compiler: questo Dockerfile è pensato per la preparazione della toolchain e dell’integrazione con AFL++. Partendo da un’immagine ispirata a OSS-Fuzz, installa compilatori, debugger e librerie necessarie. Compila un driver (\texttt{aflpp\_driver.c}) che integra AFL++ come libreria di fuzzing, imposta i flag di compilazione e le variabili d’ambiente specifiche per il motore di fuzzing e per il linguaggio C/C++, e crea i seed e le directory richieste per l’esecuzione automatica delle campagne. Inoltre, clona e costruisce una versione personalizzata di AFL++ (AFL-QMSan) da repository GitHub usando LLVM 10 per abilitare funzionalità avanzate.
+    
+    \item qmsan: questo Dockerfile crea un ambiente dedicato al fuzzing con QMSAN, un sanitizer che estende il runtime con taint tracking. Le operazioni eseguite includono: clonazione e build di QMSAN in diverse configurazioni (con/senza tracciamento di taint, con integrazione AFL), compilazione di un driver di fuzzing statico, predisposizione delle directory di input/output per il fuzzing e configurazione delle variabili d’ambiente e delle opzioni specifiche per QMSAN (ad es. affinità CPU e flag dedicati). L’immagine è resa compatibile con toolchain basate su LLVM 10 per supportare modalità avanzate.
+    
+    \item programma sotto testing: a partire dall’immagine base \texttt{qmsan:latest} vengono installate le dipendenze generali, scaricato l’ultimo commit del programma oggetto di test e configurate le opzioni di compilazione (compile flags). Il progetto viene compilato e nel container viene aggiunta una directory seed contenente input di prova (ad es. \texttt{"hi"} o \texttt{\{\}}). Qui vengono anche impostate variabili d’ambiente comuni al workflow (ad es. \texttt{DOCKER\_NAME=gpac}) e predisposte le directory di input/output per le campagne.
+\end{itemize}
+
+
+
+Questa divisione in file Docker distinti separa le responsabilità (configurazione di base, componente sanitizzante/taint e toolchain/driver di fuzzing), rendendo più semplice la riproducibilità, la manutenzione e l'analisi comparativa di configurazioni diverse.
+
+
+\section{Descrizione delle Attività}
+
+La prima parte del tirocinio è stata dedicata a verificare il corretto funzionamento dell’intero setup sperimentale. Ho usato i programmi della Google Fuzzer Test Suite come casi di prova per assicurarmi che immagini, toolchain e harness fossero correttamente configurati e integrati. Per fare ciò ho utilizzato dei seed “dummy” ovvero validi ma perché molto semplici. La durata di queste campagne era solitamente di 24 ore.
+
+Nella seconda parte ho invece esplorando alcuni programmi di OSS-Fuzz ovvero, gpac, libredwg, libc e opensc. Inizialmente, ho eseguito varie campagne di fuzzing partendo da seed “dummy” ma essendo questi programmi più complicati dei precedenti non ho avuto risultati. Ho successivamente iniziato le campagne di fuzzing da un pool di seed mantenuto da oss-fuzz con dei seed già considerati interesting. Questo è stato un passo essenziale nella scoperta dei bug. La durata di queste campagne era solitamente di 36 ore. 
+
+\begin{table}[ht]
+  \centering
+  \caption{Recap dei binari utilizzati relativi ad ogni programma}
+  \label{tab:recap-binari}
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Programma} & \textbf{Binario testato} \\
+    \midrule
+    gpac    & \texttt{fuzz\_probe\_analyze} \\
+    libredwg & \texttt{llvmfuzz} \\
+    libucl  & \texttt{ucl\_add\_string\_fuzzer} \\
+    opensc  & \texttt{fuzz\_pkcs15init} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Costruzione dell'immagine docker}
+
+Per ogni componente rilevante (immagine del programma sotto test, immagine per il compiler/toolchain e immagine per QMSAN) ho creato un’immagine Docker dedicata a partire dal rispettivo Dockerfile. 
+Questo passaggio permette di isolare le dipendenze e di rendere riproducibile l’ambiente.
+
+Un esempio di comando per costruire l’immagine è il seguente:
+
+\begin{center}
+\texttt{docker build -t libucl\_qmsan .}
+\end{center}
+
+Il comando costruisce un’immagine nominata \texttt{re2\_qmsan} a partire dal Dockerfile nella directory corrente. 
+Ripetendo la build con i Dockerfile opportuni si ottengono le immagini per il compiler e per QMSAN.
+
+\subsection{Creazione e avvio del Docker}
+
+Dall’immagine del programma ho creato un container interattivo per poter esplorare l’ambiente, eseguire comandi manuali e lanciare sessioni di fuzzing in modo controllato.
+Esempio di comando per avviare un container interattivo:
+
+\begin{center}
+\texttt{docker run -it --name libucl\_fuzzing\ libucl\_qmsan bash}
+\end{center}
+
+dove --name re2\_fuzzing assegna un nome al container, re2\_qmsan è l’immagine di partenza, -it bash apre una shell interattiva (bash) dentro il container così da poter lanciare manualmente gli strumenti.
+
+\subsection{Avvio di una sessione di Fuzzing con AFL++}
+
+La campagna di fuzzing è stata avviata con AFL++ (build integrata con QMSAN). Il fuzzer genera test case, li fornisce al target attraverso l’harness QMSAN e registra informazioni su coverage, crash e hangs nella directory di output.
+Comando usato per il fuzzing:
+
+\begin{center}
+\texttt{~/qmsan-afl/afl-fuzz -D -U -i seeds/ -o /out/1.1 -m none -t 100+ -- python3 ~/sanitizer/qmsan/qmsan ./ucl\_add\_string\_fuzzer @@}
+\end{center}
+
+dove 
+\begin{itemize}
+    \item ~/qmsan-afl/afl-fuzz: percorso del binario AFL++ integrato con QMSAN (responsabile della generazione dei test case e della gestione della coda).
+    \item -i seeds/: cartella contenente i seed iniziali (corpus minimo da cui partire);
+    \item -o /out/1.1: directory di output dove AFL salva coda, statistiche, crash, hangs;
+    \item -m none: rimuove il limite di memoria imposto al processo target (utile quando il sanitizer aumenta l’uso di memoria);
+    \item -t 100+: timeout per l’esecuzione del target impostato a 100 ms (il + indica che AFL applica un piccolo margine dinamico);
+    \item --: separa le opzioni di AFL dal comando target;
+    \item python3 ~/sanitizer/qmsan/qmsan: l’harness QMSAN che avvia il target sotto il sanitizer/taint-tracker;
+    \item ./ucl\_add\_string\_fuzzer: eseguibile di destinazione (il target da fuzzare);
+    \item @@: segnaposto che AFL sostituisce con il percorso del file di input generato.
+\end{itemize}
+
+\subsection{Riproduzione manuale di un crash}
+
+Quando AFL segnala un crash viene inserito all'interno della cartella /out/default/crashes insieme agli altri crashes trovati. Nel caso si abbia la necessità di eseguire il crashes per confermare il tipo e visualizzare la stack trace si utilizza il seguente comando:
+
+\begin{center}
+\texttt{~/sanitizer/qmsan/qmsan ./ucl\_add\_string\_fuzzer "libucl\_1209/id\_000000"
+}
+\end{center}
+
+In questo modo si utilizza qmsan con il binario per eseguire nuovamente il crash con id\_000000. 
+
+\subsection{Analisi con Valgrind}
+
+Per indagare problemi di memoria, ho eseguito i crashes precedentemente raccolti sotto Valgrind in modo da ottenere informazioni su leak, accessi invalidi e stack trace.
+Comando di analisi con Valgrind:
+
+\begin{center}
+\texttt{valgrind ./ucl\_add\_string\_fuzzer "libucl\_1209/id\_000000"}
+\end{center}
+
+Valgrind fornisce un report dettagliato sugli errori di memoria che può essere salvato su file o incluso nel log di triage.
+
+Poiché le campagne di fuzzing producono spesso molti crash, ho automatizzato la riproduzione in batch e la raccolta degli output in file di log aggregati. Questo facilita la triage: si possono eseguire tutti i crash presenti in /out/1.1/crashes, salvare stdout/stderr e produrre report separati per Valgrind.
+
+\section{Deduplication e Categorizzazione}
+
+Ogni crash è causato da un bug, ma crash differenti possono avere origine dallo stesso errore. Da questa osservazione deriva la necessità di distinguere i crash che dipendono da bug differenti. Il processo di analisi dei crash finalizzato a individuare quelli effettivamente unici prende il nome di bug triaging. Poiché il numero di crash può facilmente raggiungere le migliaia, è fondamentale disporre di un processo automatico in grado di raggrupparli in categorie, così da ottenere un sottoinsieme rappresentativo in cui ogni elemento corrisponde a un bug distinto. Questo processo è noto come bug deduplication e, nella pratica, viene spesso implementato utilizzando come discriminanti l’indirizzo del crash e l’identità dei top-k indirizzi presenti nello stack.
+
+In AFL++, i crash vengono distinti principalmente in base alla coverage. Una tecnica diffusa consiste nell’estrarre il backtrace del programma al momento del crash e nel considerare i top-k frame dello stack. La scelta di k influisce sul risultato:
+
+\begin{itemize}
+    \item un valore troppo grande porta a un over-count, ossia ogni crash viene considerato unico;
+    \item un valore troppo piccolo porta a un under-count, ossia crash differenti vengono erroneamente raggruppati;
+    \item in pratica, valori come k = 3 o k = 5 rappresentano un buon compromesso.
+\end{itemize}
+
+Esistono strumenti già pronti che supportano questo tipo di analisi. La deduplicazione consente di ridurre drasticamente l’insieme iniziale dei crash prodotti dal fuzzer a un numero più gestibile di cluster di crash unici. Tuttavia, questo rappresenta generalmente il limite dell’automazione: per associare i crash a bug reali è ancora necessario un triaging manuale, ossia un’analisi del codice per comprenderne la causa radice. Tale compito può risultare complesso, poiché il bug può trovarsi in una porzione di codice lontana dal punto in cui si manifesta il crash.
+
+Nel mio lavoro ho quindi inizialmente utilizzato uno script Python per eseguire il declustering con k = 5, fornendo come input i log raccolti in precedenza. Questo script nel caso di errori provenienti da molteplici contesti, prende in considerazione solo il primo errore rilevato e suppone che i successivi siano errori a cascata derivante dal primo. Questo è stato fatto non perchè è ciò che accade in ogni situazione ma è quello che viene considerato come vero dagli sviluppatori per semplicità.  Successivamente ho analizzato nel dettaglio i crash unici rimanenti, studiandone la tipologia e gli ultimi indirizzi nello stack. Ho successivamente diviso i vari gruppi secondo l’indizzo di crash. 

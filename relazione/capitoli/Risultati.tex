@@ -1,1 +1,61 @@
+
 \chapter{Risultati}
+
+Una volta completate le varie campagne di fuzzing, ognuna della durata di 36 ore, ed eseguito il processo di deduplication, ho controllato se i crash trovati fossero già noti agli sviluppatori. A tal fine ho consultato la sezione ``Issues'' dei repository GitHub dei progetti analizzati \cite{ref25}, \cite{ref26}, \cite{ref27}, \cite{ref28}.  
+Per la ricerca ho usato parole chiave come l'indirizzo di crash e le prime voci della stack trace, verificando che i problemi riscontrati non fossero già segnalati.
+
+\section{Panoramica generale}
+
+Di seguito vengono riportati i crash riscontrati durante le campagne di fuzzing.
+
+\subsection{OpenSC}
+I crash principali per \texttt{OpenSC} sono i seguenti:
+
+\begin{verbatim}
+Use of uninitialised value of size 8
+==112==    at 0x4E0C63A: _itoa_word (_itoa.c:180)
+==112==    by 0x4E28574: __vfprintf_internal (vfprintf-internal.c:1687)
+==112==    by 0x4E360F8: __vsprintf_internal (iovsprintf.c:95)
+
+==88== Invalid read of size 1
+==88==    at 0x14AD7C: asn1_encode_entry (in /out/fuzz_pkcs15init)
+==88==    by 0x147671: asn1_encode (in /out/fuzz_pkcs15init)
+==88==    by 0x14AC19: asn1_encode_entry (in /out/fuzz_pkcs15init)
+
+Conditional jump or move depends on uninitialised value(s)
+==118==    at 0x483FEDC: strcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==118==    by 0x13B6A5: find_macro (in /out/fuzz_pkcs15init)
+==118==    by 0x13B48E: build_argv (in /out/fuzz_pkcs15init)
+\end{verbatim}
+
+\subsection{libucl}
+I crash principali per \texttt{libucl} sono:
+
+\begin{verbatim}
+==18== Invalid read of size 8
+==18==    at 0x119F80: ucl_hash_destroy (in /out/ucl_add_string_fuzzer)
+==18==    by 0x110B6F: ucl_object_free_internal (in /out/ucl_add_string_fuzzer)
+==18==    by 0x11123D: ucl_parser_free (in /out/ucl_add_string_fuzzer)
+
+==21== Invalid read of size 4
+==21==    at 0x11A3E4: kh_put_ucl_hash_node (in /out/ucl_add_string_fuzzer)
+==21==    by 0x11A045: ucl_hash_insert (in /out/ucl_add_string_fuzzer)
+==21==    by 0x10AF3D: ucl_parser_process_object_element (in /out/ucl_add_string_fuzzer)
+
+==24== Invalid read of size 1
+==24==    at 0x112B10: ucl_load_handler (in /out/ucl_add_string_fuzzer)
+==24==    by 0x10DAD9: ucl_state_machine (in /out/ucl_add_string_fuzzer)
+==24==    by 0x10C0D7: ucl_parser_add_chunk_full (in /out/ucl_add_string_fuzzer)
+\end{verbatim}
+
+\subsection{GPAC}
+Il crash principale riscontrato in \texttt{GPAC} è il seguente:
+
+\begin{verbatim}
+==109== Conditional jump or move depends on uninitialised value(s)
+==109==    at 0x58305C: hev_parse_vps_extension (in /out/fuzz_probe_analyze)
+==109==    by 0x56D1A7: gf_hevc_read_vps_bs_internal (in /out/fuzz_probe_analyze)
+==109==    by 0x570CFD: gf_hevc_parse_nalu_bs (in /out/fuzz_probe_analyze)
+\end{verbatim}
+
+\section{Case Study: GPAC}

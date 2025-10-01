@@ -1,4 +1,19 @@
 \chapter{Introduzione}
 
-\paragraph{Obiettivi}
+In seguito alle rivoluzioni industriali dello scorso secolo la tecnologia è diventata sempre più parte della nostra società. Sempre più sistemi, dapprima analogici, divengono digitali; molte professioni che hanno rappresentato un pilastro per la società si trovano oggi a essere automatizzate o addirittura obsolete, sostituite da macchine e algoritmi sempre più sofisticati. Risulta impossibile non incontrare nella nostra quotidianità strumenti digitali di cui non possiamo fare a meno, e li consideriamo infallibili. In aggiunta, senza una reale consapevolezza dei rischi connessi, condividiamo dati personali e sensibili su Internet. 
 
+La progressiva centralizzazione delle informazioni lascia prevedere scenari in cui la quasi totalità dei dati umani sarà gestita all’interno di ampie infrastrutture di calcolo e archiviazione. 
+
+Come risultato di questo cambiamento tecnologico, la società si sta adattando e una componente chiave di questo processo, in questo caso, è lo sviluppo di una forte cultura della sicurezza delle informazioni. Infatti, esiste un inevitabile rischio di furto, frode o perdita quando i dati vengono raccolti e gestiti. Quello che prima accadeva materialmente con documenti fisici o segreti aziendali circoscritti, oggi accade con identità digitali, transazioni finanziarie e sistemi di infrastrutture critiche come i sistemi energetici e sanitari.
+
+Nel presente scenario, la sicurezza informatica non rappresenta più un tema riservato agli  esperti ma anche una componente cruciale per garantire la stabilità della società.  A causa di questi fattori, il campo della sicurezza informatica si sta espandendo a un ritmo esponenziale, adottando nuove tecniche e metodologie, e affrontando minacce impensabili solo pochi anni fa, come la protezione dell’intelligenza artificiale, del cloud computing e dei sistemi Internet of Things (IoT).
+
+L’obiettivo principale della sicurezza del software è permettere l’utilizzo previsto delle funzionalità applicative, impedendo al contempo qualsiasi uso non intenzionale o non autorizzato \cite{ref1}. Un impiego improprio, infatti, può comportare conseguenze dannose, come l’uso involontario o abusivo delle risorse di calcolo al di fuori dei limiti consentiti e definiti dal progetto.
+
+Lo scopo di questo tirocinio è contribuire, anche se in piccola parte, a questo sforzo collettivo: sfruttare le tecniche di sicurezza per identificare le vulnerabilità in alcuni programmi open source utilizzati quotidianamente da milioni di persone. Una volta identificate, le vulnerabilità sono state tempestivamente comunicate ai responsabili di progetto, i quali hanno cominciato il processo di correzione. In questo modo, non solo è possibile ridurre il rischio per gli utenti finali, ma anche valorizzare l’importanza della collaborazione all’interno della comunità informatica, dove la trasparenza svolge un ruolo cruciale nel rendere il cyberspazio un luogo più sicuro per tutti.
+
+\section{Obiettivi}
+
+L’obiettivo principale di questo tirocinio è l’individuazione di errori software che non vengono rilevati dai tradizionali strumenti di analisi, con particolare attenzione alle vulnerabilità di tipo Use-of-Uninitialized Memory (UUM), come verrà approfondito nei capitoli successivi. Tali errori rappresentano una categoria critica di vulnerabilità, poiché non sempre determinano comportamenti evidenti come un crash immediato, ma possono compromettere in modo silente lo stato interno del programma e, in scenari più gravi, essere sfruttati da un attaccante per ottenere accesso a informazioni sensibili oaccedere ad un sistema senza i necessari privilegi.
+
+Il lavoro svolto ha dunque un duplice scopo: da un lato, incrementare la capacità di rilevamento di bug rispetto agli strumenti tradizionalmente utilizzati, dall’altro fornire un contributo concreto alla sicurezza delle piattaforme analizzate. Una volta identificate le vulnerabilità, infatti, esse vengono documentate e segnalate ai rispettivi gestori o sviluppatori, così da permettere l’avvio di un processo di patching e di mitigazione del rischio.

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.29)  29 SEP 2025 19:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.1)  1 OCT 2025 21:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/giuse/Fuzz-Testing/relazione/thesis.tex
-(c:/Users/giuse/Fuzz-Testing/relazione/thesis.tex
+**c:/Users/giuse/Relazione-Tirocinio-Fuzz-Testing/relazione/thesis.tex
+(c:/Users/giuse/Relazione-Tirocinio-Fuzz-Testing/relazione/thesis.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (sapthesis.cls
@@ -543,7 +543,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<sapienzalogo.pdf, id=23, 288.07625pt x 89.33376pt>
+<sapienzalogo.pdf, id=119, 288.07625pt x 89.33376pt>
 File: sapienzalogo.pdf Graphic file (type pdf)
 <use sapienzalogo.pdf>
 Package pdftex.def Info: sapienzalogo.pdf  used on input line 33.
@@ -606,7 +606,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--33
 
 ] [4
 
-] (thesis.toc)
+] (thesis.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 4.
+)
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
@@ -614,48 +621,181 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--33
 
 ] (capitoli/Introduzione.tex
 Capitolo 1.
-) (capitoli/Background.tex [1
+[1
 
-] [2
-
-]
+]) (capitoli/Background.tex [2]
 Capitolo 2.
-) (capitoli/Metodologia.tex [3] [4
+[3
 
 ]
+<immagini/asan.jpg, id=220, 1284.8pt x 722.7pt>
+File: immagini/asan.jpg Graphic file (type jpg)
+<use immagini/asan.jpg>
+Package pdftex.def Info: immagini/asan.jpg  used on input line 34.
+(pdftex.def)             Requested size: 277.19879pt x 155.91782pt.
+ [4]
+
+LaTeX Warning: Citation `ref9' on page 5 undefined on input line 45.
+
+
+LaTeX Warning: Citation `12' on page 5 undefined on input line 49.
+
+[5 <./immagini/asan.jpg>]
+<immagini/valgrind.jpg, id=249, 270.00874pt x 188.705pt>
+File: immagini/valgrind.jpg Graphic file (type jpg)
+<use immagini/valgrind.jpg>
+Package pdftex.def Info: immagini/valgrind.jpg  used on input line 76.
+(pdftex.def)             Requested size: 158.39758pt x 110.70439pt.
+ [6] [7 <./immagini/valgrind.jpg>]
+<immagini/fuzzing.jpg, id=274, 308.65312pt x 392.21532pt>
+File: immagini/fuzzing.jpg Graphic file (type jpg)
+<use immagini/fuzzing.jpg>
+Package pdftex.def Info: immagini/fuzzing.jpg  used on input line 99.
+(pdftex.def)             Requested size: 237.60242pt x 301.9349pt.
+ [8 <./immagini/fuzzing.jpg>] [9]
+<immagini/AFL++.jpg, id=294, 553.31718pt x 346.29375pt>
+File: immagini/AFL++.jpg Graphic file (type jpg)
+<use immagini/AFL++.jpg>
+Package pdftex.def Info: immagini/AFL++.jpg  used on input line 140.
+(pdftex.def)             Requested size: 316.80121pt x 198.26662pt.
+ [10 <./immagini/AFL++.jpg>]
+<immagini/oss-fuzz.jpg, id=303, 455.45157pt x 227.34938pt>
+File: immagini/oss-fuzz.jpg Graphic file (type jpg)
+<use immagini/oss-fuzz.jpg>
+Package pdftex.def Info: immagini/oss-fuzz.jpg  used on input line 190.
+(pdftex.def)             Requested size: 277.19879pt x 138.37416pt.
+) (capitoli/Metodologia.tex [11] [12 <./immagini/oss-fuzz.jpg>]
 Capitolo 3.
-) (capitoli/Risultati.tex [5] [6
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 10.
+(C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [13
+
+] [14]
+Overfull \hbox (18.07048pt too wide) in paragraph at lines 93--94
+\T1/lmr/m/n/10.95 (-20) Quando AFL se-gna-la un crash vie-ne in-se-ri-to al-l'in-ter-no del-la car-tel-la /out/default/crashes
+ []
+
+[15] [16]) (capitoli/Risultati.tex [17] [18
 
 ]
 Capitolo 4.
-) (capitoli/Conclusione.tex [7] [8
 
-]
+Overfull \hbox (12.16008pt too wide) in paragraph at lines 29--29
+[]\T1/lmtt/m/n/10.95 ==112==    by 0x4E28574: __vfprintf_internal (vfprintf-internal.c:1687)[] 
+ []
+
+
+Overfull \hbox (207.61702pt too wide) in paragraph at lines 29--29
+[]\T1/lmtt/m/n/10.95 ==118==    at 0x483FEDC: strcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)[] 
+ []
+
+
+Overfull \hbox (12.16008pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==18==    at 0x119F80: ucl_hash_destroy (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+[19]
+Overfull \hbox (58.14995pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==18==    by 0x110B6F: ucl_object_free_internal (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+
+Overfull \hbox (6.41135pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==18==    by 0x11123D: ucl_parser_free (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+
+Overfull \hbox (35.15501pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==21==    at 0x11A3E4: kh_put_ucl_hash_node (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+
+Overfull \hbox (6.41135pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==21==    by 0x11A045: ucl_hash_insert (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+
+Overfull \hbox (109.88855pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==21==    by 0x10AF3D: ucl_parser_process_object_element (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+
+Overfull \hbox (12.16008pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==24==    at 0x112B10: ucl_load_handler (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+
+Overfull \hbox (17.90881pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==24==    by 0x10DAD9: ucl_state_machine (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+
+Overfull \hbox (63.89868pt too wide) in paragraph at lines 49--49
+[]\T1/lmtt/m/n/10.95 ==24==    by 0x10C0D7: ucl_parser_add_chunk_full (in /out/ucl_add_string_fuzzer)[] 
+ []
+
+
+Overfull \hbox (40.90375pt too wide) in paragraph at lines 59--59
+[]\T1/lmtt/m/n/10.95 ==109==    at 0x58305C: hev_parse_vps_extension (in /out/fuzz_probe_analyze)[] 
+ []
+
+
+Overfull \hbox (69.64742pt too wide) in paragraph at lines 59--59
+[]\T1/lmtt/m/n/10.95 ==109==    by 0x56D1A7: gf_hevc_read_vps_bs_internal (in /out/fuzz_probe_analyze)[] 
+ []
+
+
+Overfull \hbox (29.40628pt too wide) in paragraph at lines 59--59
+[]\T1/lmtt/m/n/10.95 ==109==    by 0x570CFD: gf_hevc_parse_nalu_bs (in /out/fuzz_probe_analyze)[] 
+ []
+
+) (capitoli/Conclusione.tex [20]
 Capitolo 5.
-) [9] [10
+) [21
 
-]
-No file thesis.bbl.
-(thesis.aux)
+] [22
+
+] (thesis.bbl
+Underfull \hbox (badness 1910) in paragraph at lines 16--18
+[]\T1/lmr/m/n/10.95 (+20) Memcheck: a me-mo-ry er-ror de-tec-tor.  []$\T1/lmtt/m/n/10.95 https : / / valgrind . org / docs /
+ []
+
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+[23
+
+
+]) [24] (thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1737DC3DDDC4CCA985DE2EAF5D0F2BE7;480.
+(rerunfilecheck)             Checksum: 89070F37667008FD654E97E7FC375AAB;3958.
  ) 
 Here is how much of TeX's memory you used:
- 15942 strings out of 474486
- 261772 string characters out of 5743755
- 1928542 words of memory out of 5000000
- 37874 multiletter control sequences out of 15000+600000
- 616352 words of font info for 105 fonts, out of 8000000 for 9000
+ 16376 strings out of 474486
+ 268462 string characters out of 5743755
+ 1937542 words of memory out of 5000000
+ 38090 multiletter control sequences out of 15000+600000
+ 647419 words of font info for 188 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,131p,1041b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on thesis.pdf (16 pages, 201243 bytes).
+ 84i,13n,131p,1061b,716s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on thesis.pdf (30 pages, 886150 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 36910 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 467 PDF objects out of 1000 (max. 8388607)
+ 103 named destinations out of 1000 (max. 500000)
+ 54023 words of extra memory for PDF output out of 61914 (max. 10000000)
 

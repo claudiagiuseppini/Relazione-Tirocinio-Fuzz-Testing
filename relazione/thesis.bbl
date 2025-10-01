@@ -1,0 +1,148 @@
+\begin{thebibliography}{10}
+
+\bibitem{ref28}
+Gpac issues.
+\newblock Available from: \url{https://github.com/gpac/gpac/issues}.
+
+\bibitem{ref27}
+Libredwg issues.
+\newblock Available from: \url{https://github.com/LibreDWG/libredwg/issues}.
+
+\bibitem{ref26}
+libucl issues.
+\newblock Available from: \url{https://github.com/vstakhov/libucl/issues}.
+
+\bibitem{ref10}
+Memcheck: a memory error detector.
+\newblock \url{https://valgrind.org/docs/memcheck2005.pdf}.
+
+\bibitem{ref25}
+Opensc issues.
+\newblock Available from: \url{https://github.com/OpenSC/OpenSC/issues}.
+
+\bibitem{ref24}
+\textsc{AFL++}.
+\newblock Fuzzing library ``libafl''.
+\newblock Available from: \url{https://aflplus.plus/libafl-book/libafl.html}.
+
+\bibitem{ref22}
+\textsc{Bohme, M., Cadar, C., and Roychoudhury, A.}
+\newblock Fuzzing: Challenges and reflections.
+
+\bibitem{ref2}
+\textsc{Bratus, S., Locasto, M.~E., Patterson, M.~L., Sassman, L., and Shubina,
+  A.}
+\newblock Exploit programming: From buffer overflows to "weird machines" and
+  theory of computation.
+\newblock In \emph{Usenix ;login:} (2011).
+
+\bibitem{ref11}
+\textsc{Fioraldi, A., Maier, D., Eißfeldt, H., and Heuse, M.}
+\newblock Afl++ : Combining incremental steps of fuzzing research.
+\newblock In \emph{14th USENIX Workshop on Offensive Technologies (WOOT 2020)}
+  (2020).
+\newblock Available from:
+  \url{https://www.usenix.org/conference/woot20/presentation/fioraldi}.
+
+\bibitem{ref23}
+\textsc{GitLab}.
+\newblock Coverage-guided fuzz testing.
+\newblock Available from:
+  \url{https://docs.gitlab.com/ee/user/application_security/coverage_fuzzing/}.
+
+\bibitem{ref18}
+\textsc{Google}.
+\newblock Google sanitizers github repository.
+\newblock Available from: \url{https://github.com/google/sanitizers}.
+
+\bibitem{ref4}
+\textsc{Hicks, M.}
+\newblock What is memory safety? (2014).
+\newblock Accessed: July 21, 2014.
+\newblock Available from:
+  \url{http://www.pl-enthusiast.net/2014/07/21/memory-safety/}.
+
+\bibitem{ref3}
+\textsc{Hopper, G.}
+\newblock Software bug etymology (1947).
+
+\bibitem{ref21}
+\textsc{Klees, G., Ruef, A., Cooper, B., Wei, S., and Hicks, M.}
+\newblock Evaluating fuzz testing.
+\newblock In \emph{Proceedings of the 2018 ACM SIGSAC Conference on Computer
+  and Communications Security} (2018).
+
+\bibitem{ref8}
+\textsc{LLVM}.
+\newblock Memorysanitizer documentation.
+\newblock Available from:
+  \url{https://clang.llvm.org/docs/MemorySanitizer.html}.
+
+\bibitem{ref12}
+\textsc{Marini, M., D'Elia, D.~C., Payer, M., and Querzoni, L.}
+\newblock Qmsan: Efficiently detecting uninitialized memory errors during
+  fuzzing.
+
+\bibitem{ref5}
+\textsc{Mitchell, J.~C.}
+\newblock \emph{Concepts in Programming Languages} (2002).
+
+\bibitem{ref1}
+\textsc{Payer, M.}
+\newblock \emph{Software Security: Principles, Policies, and Protection}.
+
+\bibitem{ref20}
+\textsc{Payer, M.}
+\newblock The fuzzing hype-train: How random testing triggers thousands of
+  crashes.
+\newblock \emph{IEEE Security \& Privacy}, \textbf{17} (2019), 78.
+
+\bibitem{ref7}
+\textsc{Serebryany, K., Bruening, D., Potapenko, A., and Vyukov, D.}
+\newblock Addresssanitizer: A fast address sanity checker.
+\newblock In \emph{USENIX Annual Technical Conference (ATC)} (2012).
+
+\bibitem{ref19}
+\textsc{Song, D., Lettner, J., Rajasekaran, P., Na, Y., Volckaert, S., Larsen,
+  P., and Franz, M.}
+\newblock Sok: Sanitizing for security.
+
+\bibitem{ref6}
+\textsc{Souag, A., Salinesi, C., Mazo, R., and Comyn-Wattiau, I.}
+\newblock A security ontology for security requirements elicitation.
+\newblock In \emph{ESSoS} (2015).
+
+\bibitem{ref13}
+\textsc{Stepanov, E. and Serebryany, K.}
+\newblock Memorysanitizer: fast detector of c uninitialized memory use in c++.
+
+\bibitem{ref29}
+\textsc{Stephens, N., Grosen, J., Salls, C., Dutcher, A., Wang, R., Corbetta,
+  J., Shoshitaishvili, Y., Kruegel, C., and Vigna, G.}
+\newblock Driller: Augmenting fuzzing through selective symbolic execution.
+\newblock In \emph{Network and Distributed System Security Symposium (NDSS)}
+  (2016).
+
+\bibitem{ref16}
+\textsc{Szekeres, L., Payer, M., Wei, T., and Song, D.}
+\newblock Sok: Eternal war in memory.
+\newblock In \emph{IEEE Symposium on Security and Privacy}, pp. 48--62 (2013).
+
+\bibitem{ref14}
+\textsc{Valgrind}.
+\newblock Memcheck: a memory error detector (manual).
+\newblock Available from:
+  \url{https://valgrind.org/docs/manual/mc-manual.html}.
+
+\bibitem{ref15}
+\textsc{Valgrind}.
+\newblock Valgrind website.
+\newblock Available from: \url{https://valgrind.org/}.
+
+\bibitem{ref17}
+\textsc{Zeller, A., Gopinath, R., Bohme, M., Fraser, G., and Holler, C.}
+\newblock The fuzzing book (2019).
+\newblock [Online; accessed 25-May-2020].
+\newblock Available from: \url{https://www.fuzzingbook.org/}.
+
+\end{thebibliography}

@@ -1,0 +1,88 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+The style file: sapthesis.bst
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Database file #1: bibliografia.bib
+Warning--entry type for "ref4" isn't style-file defined
+--line 37 of file bibliografia.bib
+Warning--entry type for "ref8" isn't style-file defined
+--line 93 of file bibliografia.bib
+Warning--entry type for "ref14" isn't style-file defined
+--line 171 of file bibliografia.bib
+Warning--entry type for "ref15" isn't style-file defined
+--line 183 of file bibliografia.bib
+Warning--entry type for "ref17" isn't style-file defined
+--line 211 of file bibliografia.bib
+Warning--entry type for "ref18" isn't style-file defined
+--line 227 of file bibliografia.bib
+Warning--entry type for "ref23" isn't style-file defined
+--line 293 of file bibliografia.bib
+Warning--entry type for "ref24" isn't style-file defined
+--line 305 of file bibliografia.bib
+Warning--entry type for "ref25" isn't style-file defined
+--line 317 of file bibliografia.bib
+Warning--entry type for "ref26" isn't style-file defined
+--line 327 of file bibliografia.bib
+Warning--entry type for "ref27" isn't style-file defined
+--line 337 of file bibliografia.bib
+Warning--entry type for "ref28" isn't style-file defined
+--line 347 of file bibliografia.bib
+Warning--I didn't find a database entry for "ref9"
+Warning--I didn't find a database entry for "12"
+Warning--to sort, need author or key in ref10
+Warning--to sort, need author or key in ref25
+Warning--to sort, need author or key in ref26
+Warning--to sort, need author or key in ref27
+Warning--to sort, need author or key in ref28
+Warning--missing publisher in ref5
+Warning--missing publisher in ref1
+Warning--empty year in ref1
+You've used 28 entries,
+            3472 wiz_defined-function locations,
+            811 strings with 8774 characters,
+and the built_in function-call counts, 12391 in all, are:
+= -- 1007
+> -- 486
+< -- 1
++ -- 253
+- -- 134
+* -- 551
+:= -- 1480
+add.period$ -- 75
+call.type$ -- 28
+change.case$ -- 165
+chr.to.int$ -- 0
+cite$ -- 36
+duplicate$ -- 802
+empty$ -- 1202
+format.name$ -- 146
+if$ -- 3008
+int.to.chr$ -- 0
+int.to.str$ -- 28
+missing$ -- 184
+newline$ -- 134
+num.names$ -- 46
+pop$ -- 686
+preamble$ -- 1
+purify$ -- 123
+quote$ -- 0
+skip$ -- 774
+stack$ -- 0
+substring$ -- 178
+swap$ -- 417
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 108
+warning$ -- 8
+while$ -- 50
+width$ -- 30
+write$ -- 249
+(There were 22 warnings)
