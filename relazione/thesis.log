@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.1)  1 OCT 2025 21:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.1)  2 OCT 2025 00:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -653,18 +653,18 @@ File: immagini/fuzzing.jpg Graphic file (type jpg)
 Package pdftex.def Info: immagini/fuzzing.jpg  used on input line 99.
 (pdftex.def)             Requested size: 237.60242pt x 301.9349pt.
  [8 <./immagini/fuzzing.jpg>] [9]
-<immagini/AFL++.jpg, id=294, 553.31718pt x 346.29375pt>
+<immagini/AFL++.jpg, id=295, 553.31718pt x 346.29375pt>
 File: immagini/AFL++.jpg Graphic file (type jpg)
 <use immagini/AFL++.jpg>
-Package pdftex.def Info: immagini/AFL++.jpg  used on input line 140.
+Package pdftex.def Info: immagini/AFL++.jpg  used on input line 147.
 (pdftex.def)             Requested size: 316.80121pt x 198.26662pt.
- [10 <./immagini/AFL++.jpg>]
-<immagini/oss-fuzz.jpg, id=303, 455.45157pt x 227.34938pt>
+ [10]
+<immagini/oss-fuzz.jpg, id=302, 455.45157pt x 227.34938pt>
 File: immagini/oss-fuzz.jpg Graphic file (type jpg)
 <use immagini/oss-fuzz.jpg>
-Package pdftex.def Info: immagini/oss-fuzz.jpg  used on input line 190.
+Package pdftex.def Info: immagini/oss-fuzz.jpg  used on input line 177.
 (pdftex.def)             Requested size: 277.19879pt x 138.37416pt.
-) (capitoli/Metodologia.tex [11] [12 <./immagini/oss-fuzz.jpg>]
+) (capitoli/Metodologia.tex [11 <./immagini/AFL++.jpg>] [12 <./immagini/oss-fuzz.jpg>]
 Capitolo 3.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 10.
 (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
@@ -785,15 +785,15 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 89070F37667008FD654E97E7FC375AAB;3958.
  ) 
 Here is how much of TeX's memory you used:
- 16376 strings out of 474486
- 268462 string characters out of 5743755
+ 16370 strings out of 474486
+ 268392 string characters out of 5743755
  1937542 words of memory out of 5000000
  38090 multiletter control sequences out of 15000+600000
- 647419 words of font info for 188 fonts, out of 8000000 for 9000
+ 647224 words of font info for 185 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,131p,1061b,716s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on thesis.pdf (30 pages, 886150 bytes).
+Output written on thesis.pdf (30 pages, 885341 bytes).
 PDF statistics:
  467 PDF objects out of 1000 (max. 8388607)
  103 named destinations out of 1000 (max. 500000)

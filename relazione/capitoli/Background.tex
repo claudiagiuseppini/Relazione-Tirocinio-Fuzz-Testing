@@ -124,6 +124,13 @@ I grey-box fuzzers sono anche noti come coverage-guided fuzzers, in quanto l’e
 
 Questo meccanismo permette di identificare rapidamente quali input conducono a percorsi di esecuzione nuovi o inesplorati. Gli input ritenuti “interessanti” vengono conservati nella coda del fuzzer per ulteriori mutazioni, in modo da ampliare progressivamente la copertura del programma e aumentare le probabilità di individuare bug profondi o edge cases.
 
+In generale, misurare le performance di un fuzzer risulta piuttosto difficile, bisogna tenere in considerazione che:
+\begin{itemize}
+    \item esiste la necessità di eseguire molteplici campagne - abbastanza per tenere conto della variazione della performance tra un run ed il successivo;
+    \item molte analisi misurano la performance di un fuzzer contando i crashes unici piuttosto che i bug distinti, questo può portare a sovrastimare il numero di bug;
+    \item i seed giocano un ruolo importante all'interno del fuzzer, un cambiamento di seed tra una campagna e l'altra può variare sostanzialmente la performance \cite{ref21}. 
+\end{itemize}
+
 \subsection{AFL++}
 
 Il fuzzer più popolare, e quello che è stato utilizzato nello svolgimento di questo tirocinio è American Fuzzy Loop ++ (AFL++), uno sviluppo dell’omonimo AFL \cite{ref11}, \cite{ref24}.Questo è un fuzzer di tipo coverage-guided. 
@@ -154,26 +161,6 @@ AFL ci fornisce come output una serie di file con le statistiche relatve alla ca
     \item queue/: conserva gli inpt che si sono dimostrati capaci di esplorare grandi o nuove parti de programma.
 \end{itemize}
 Per quanto riguarda la coda mantiene dinamicamente un insieme di input di test-cases non ridonanti che permettono di esplorare tutti gli edges (coperti fino a quel momento) della mappa. 
-
-Most papers failed to perform multiple runs, and those that did
-failed to account for varying performance by using a statistical
-test. This is a problem because our experiments showed that
-run-to-run performance can vary substantially.
-• Many papers measured fuzzer performance not by counting
-distinct bugs, but instead by counting “unique crashes” using
-heuristics such as AFL’s coverage measure and stack hashes.
-This is a problem because experiments we carried out showed
-that the heuristics can dramatically over-count the number
-of bugs, and indeed may suppress bugs by wrongly grouping
-crashing inputs. This means that apparent improvements may
-be modest or illusory. Many papers made some consideration
-of root causes, but often as a “case study” rather than a performance assessment.
-• Many papers used short timeouts, without justification. Our
-experiments showed that longer timeouts may be needed to
-paint a complete picture of an algorithm’s performance.
-• Many papers did not carefully consider the impact of seed
-choices on algorithmic improvements. Our experiments showed
-that performance can vary substantially \cite{ref21}
 
 \subsection{Fuzzer Test Suite}
 
