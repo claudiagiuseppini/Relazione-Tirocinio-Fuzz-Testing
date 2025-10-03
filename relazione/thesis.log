@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.29)  3 OCT 2025 14:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.29)  3 OCT 2025 21:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -685,81 +685,17 @@ Overfull \hbox (18.07048pt too wide) in paragraph at lines 93--94
 Capitolo 4.
 [21
 
-]
-Overfull \hbox (12.16008pt too wide) in paragraph at lines 57--57
-[]\T1/lmtt/m/n/10.95 ==112==    by 0x4E28574: __vfprintf_internal (vfprintf-internal.c:1687)[] 
- []
-
-
-Overfull \hbox (207.61702pt too wide) in paragraph at lines 57--57
-[]\T1/lmtt/m/n/10.95 ==118==    at 0x483FEDC: strcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)[] 
- []
-
-
-Overfull \hbox (12.16008pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==18==    at 0x119F80: ucl_hash_destroy (in /out/ucl_add_string_fuzzer)[] 
- []
-
-
-Overfull \hbox (58.14995pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==18==    by 0x110B6F: ucl_object_free_internal (in /out/ucl_add_string_fuzzer)[] 
- []
-
-
-Overfull \hbox (6.41135pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==18==    by 0x11123D: ucl_parser_free (in /out/ucl_add_string_fuzzer)[] 
- []
-
-
-Overfull \hbox (35.15501pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==21==    at 0x11A3E4: kh_put_ucl_hash_node (in /out/ucl_add_string_fuzzer)[] 
- []
-
-
-Overfull \hbox (6.41135pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==21==    by 0x11A045: ucl_hash_insert (in /out/ucl_add_string_fuzzer)[] 
- []
-
-
-Overfull \hbox (109.88855pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==21==    by 0x10AF3D: ucl_parser_process_object_element (in /out/ucl_add_string_fuzzer)[] 
- []
-
-
-Overfull \hbox (12.16008pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==24==    at 0x112B10: ucl_load_handler (in /out/ucl_add_string_fuzzer)[] 
- []
-
-[22]
-Overfull \hbox (17.90881pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==24==    by 0x10DAD9: ucl_state_machine (in /out/ucl_add_string_fuzzer)[] 
- []
-
-
-Overfull \hbox (63.89868pt too wide) in paragraph at lines 81--81
-[]\T1/lmtt/m/n/10.95 ==24==    by 0x10C0D7: ucl_parser_add_chunk_full (in /out/ucl_add_string_fuzzer)[] 
- []
-
-
-Overfull \hbox (40.90375pt too wide) in paragraph at lines 96--96
-[]\T1/lmtt/m/n/10.95 ==109==    at 0x58305C: hev_parse_vps_extension (in /out/fuzz_probe_analyze)[] 
- []
-
-
-Overfull \hbox (69.64742pt too wide) in paragraph at lines 96--96
-[]\T1/lmtt/m/n/10.95 ==109==    by 0x56D1A7: gf_hevc_read_vps_bs_internal (in /out/fuzz_probe_analyze)[] 
- []
-
-
-Overfull \hbox (29.40628pt too wide) in paragraph at lines 96--96
-[]\T1/lmtt/m/n/10.95 ==109==    by 0x570CFD: gf_hevc_parse_nalu_bs (in /out/fuzz_probe_analyze)[] 
- []
-
-) (capitoli/Conclusione.tex [23] [24
+] [22] [23]
+<immagini/valgrind-error.jpg, id=392, 544.434pt x 795.57225pt>
+File: immagini/valgrind-error.jpg Graphic file (type jpg)
+<use immagini/valgrind-error.jpg>
+Package pdftex.def Info: immagini/valgrind-error.jpg  used on input line 121.
+(pdftex.def)             Requested size: 277.19879pt x 405.08095pt.
+) (capitoli/Conclusione.tex [24 <./immagini/valgrind-error.jpg>] [25] [26
 
 ]
 Capitolo 5.
-) [25] [26
+) [27] [28
 
 ] (thesis.bbl
 Underfull \hbox (badness 7344) in paragraph at lines 8--11
@@ -779,10 +715,10 @@ Underfull \hbox (badness 1910) in paragraph at lines 25--27
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-[27
+[29
 
 
-]) [28] (thesis.aux)
+]) [30] (thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -792,20 +728,20 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F5DADCE6DD09253EA56887BC2842276C;4236.
+(rerunfilecheck)             Checksum: 12678241AF0FF581C92FB21AD74A719E;4237.
  ) 
 Here is how much of TeX's memory you used:
- 16393 strings out of 474486
- 268299 string characters out of 5743755
+ 16404 strings out of 474486
+ 268588 string characters out of 5743755
  1938542 words of memory out of 5000000
- 38096 multiletter control sequences out of 15000+600000
+ 38104 multiletter control sequences out of 15000+600000
  647224 words of font info for 185 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,131p,1041b,752s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,131p,1041b,748s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on thesis.pdf (34 pages, 994331 bytes).
+Output written on thesis.pdf (36 pages, 1337255 bytes).
 PDF statistics:
- 518 PDF objects out of 1000 (max. 8388607)
- 120 named destinations out of 1000 (max. 500000)
- 54039 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 529 PDF objects out of 1000 (max. 8388607)
+ 123 named destinations out of 1000 (max. 500000)
+ 54044 words of extra memory for PDF output out of 61914 (max. 10000000)
 

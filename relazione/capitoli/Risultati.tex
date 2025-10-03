@@ -16,44 +16,44 @@ Di seguito vengono riportati i crash riscontrati durante le campagne di fuzzing.
     \toprule
     \textbf{Programma} & \textbf{} \\
     \midrule
-    gpac    & 33 \\
-    libredwg & 437 \\
-    libucl  & 191 \\
-    opensc  & 16 \\
+    GPAC    & 33 \\
+    LibreDWG & 437 \\
+    LibUCL  & 191 \\
+    OpenSC  & 16 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Osserviamo che ci sono grandi variazioni tra programmi diversi: libredwg è il programma che ha riscontrato più crashes in assoluto, molti però erano non riproducibili o con stack trace identica a precedenti.
+Osserviamo che ci sono grandi variazioni tra programmi diversi: LibreDWG è il programma che ha riscontrato più crashes in assoluto, molti però erano non riproducibili o con stack trace identica a precedenti.
 Il fatto che il numero dei crashes trovato fosse così superiore agli altri non ha comportato la scoperta di un numero maggiore di bug ma semplicemente un lavoro più pesante nel processo di deduplicazione. 
 
-Al secondo posto troviamo libucl, in cui abbiamo trovato 191 crashes, principalmente di tipo Segmentation Fault e quindi non relativi ad errori di tipo UUM.
-Sebbene non siano errori di memoria, sono comunque rilevanti da un punto di vista funzionale, significa infatti che gli input provocano la terminazione del programma, che è un problema di per sè. 
+Al secondo posto si colloca LibUCL, nel quale abbiamo riscontrato 191 crash, principalmente di tipo Segmentation Fault. 
+Sebbene non siano errori di tipo UUM, questi crash rimangono rilevanti dal punto di vista funzionale, poiché gli input coinvolti provocano la terminazione del programma, compromettendone l’affidabilità. 
 
-Vediamo poi gpac, in cui abbiamo trovato un errore di tipo UUM ( ovvero Conditional jump or move depends on uninitialised value) , sebbeno principalmente gli errori trovati fossero di tpo SEGFAULT. 
+Vediamo poi GPAC, in cui abbiamo trovato un errore di tipo Conditional jump or move depends on uninitialised value, sebbene principalmente gli errori trovati fossero di tipo SEGFAULT, questi si sono risolti in seguito al github commit dello sviluppatore. 
 
-Infine, analizziamo OpenSC, programma di grandezza maggiore rispetto ai precedenti, in cui abbiamo trovato 16 crashes, che però si rivelano i più efficaci, infatti 3 di questi si sono rivelati unique. 
+Infine, analizziamo OpenSC all'interno del quale abbiamo trovato 16 crashes, che però si rivelano i più efficaci, infatti 3 di questi si sono rivelati unique. Due di questi coivolgono l'utilizzo di unitialized values ed uno di questi porta alla terminazione del programma. Analizziamo nella sezione Case Study - OpenSC con maggiore dettaglio questi errori.   
 
 \subsection{OpenSC}
 
-Come vedremo in seguito in maggiore dettaglio OpenSc è un insieme di librerie utilizzate per funzioni crittografiche.
+OpenSC è un progetto la cui finalità principale è supportare le smart card con funzioni crittografiche, vedremo più in dettaglio successivamente le sue funzionalità. 
 I crash unici trovati, una volta rimossi quelli non riproducibili e quelli già reportati, per \texttt{OpenSC} sono i seguenti:
 
 \begin{verbatim}
 Use of uninitialised value of size 8
-==112==    at 0x4E0C63A: _itoa_word (_itoa.c:180)
-==112==    by 0x4E28574: __vfprintf_internal (vfprintf-internal.c:1687)
-==112==    by 0x4E360F8: __vsprintf_internal (iovsprintf.c:95)
+==112==    at 0x4E0C63A: _itoa_word 
+==112==    by 0x4E28574: __vfprintf_internal 
+==112==    by 0x4E360F8: __vsprintf_internal 
 
 ==88== Invalid read of size 1
-==88==    at 0x14AD7C: asn1_encode_entry (in /out/fuzz_pkcs15init)
-==88==    by 0x147671: asn1_encode (in /out/fuzz_pkcs15init)
-==88==    by 0x14AC19: asn1_encode_entry (in /out/fuzz_pkcs15init)
+==88==    at 0x14AD7C: asn1_encode_entry 
+==88==    by 0x147671: asn1_encode 
+==88==    by 0x14AC19: asn1_encode_entry 
 
 Conditional jump or move depends on uninitialised value(s)
-==118==    at 0x483FEDC: strcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==118==    by 0x13B6A5: find_macro (in /out/fuzz_pkcs15init)
-==118==    by 0x13B48E: build_argv (in /out/fuzz_pkcs15init)
+==118==    at 0x483FEDC: strcmp 
+==118==    by 0x13B6A5: find_macro 
+==118==    by 0x13B48E: build_argv 
 \end{verbatim}
 
 \subsection{LibUCL}
@@ -65,19 +65,19 @@ I crash unici trovati, una volta rimossi quelli non riproducibili e quelli già 
 
 \begin{verbatim}
 ==18== Invalid read of size 8
-==18==    at 0x119F80: ucl_hash_destroy (in /out/ucl_add_string_fuzzer)
-==18==    by 0x110B6F: ucl_object_free_internal (in /out/ucl_add_string_fuzzer)
-==18==    by 0x11123D: ucl_parser_free (in /out/ucl_add_string_fuzzer)
+==18==    at 0x119F80: ucl_hash_destroy 
+==18==    by 0x110B6F: ucl_object_free_internal 
+==18==    by 0x11123D: ucl_parser_free 
 
 ==21== Invalid read of size 4
-==21==    at 0x11A3E4: kh_put_ucl_hash_node (in /out/ucl_add_string_fuzzer)
-==21==    by 0x11A045: ucl_hash_insert (in /out/ucl_add_string_fuzzer)
-==21==    by 0x10AF3D: ucl_parser_process_object_element (in /out/ucl_add_string_fuzzer)
+==21==    at 0x11A3E4: kh_put_ucl_hash_node
+==21==    by 0x11A045: ucl_hash_insert 
+==21==    by 0x10AF3D: ucl_parser_process_object_element 
 
 ==24== Invalid read of size 1
-==24==    at 0x112B10: ucl_load_handler (in /out/ucl_add_string_fuzzer)
-==24==    by 0x10DAD9: ucl_state_machine (in /out/ucl_add_string_fuzzer)
-==24==    by 0x10C0D7: ucl_parser_add_chunk_full (in /out/ucl_add_string_fuzzer)
+==24==    at 0x112B10: ucl_load_handler 
+==24==    by 0x10DAD9: ucl_state_machine 
+==24==    by 0x10C0D7: ucl_parser_add_chunk_full 
 \end{verbatim}
 
 \subsection{GPAC}
@@ -90,9 +90,9 @@ I crash unici trovati, una volta rimossi quelli non riproducibili e quelli già 
 
 \begin{verbatim}
 ==109== Conditional jump or move depends on uninitialised value(s)
-==109==    at 0x58305C: hev_parse_vps_extension (in /out/fuzz_probe_analyze)
-==109==    by 0x56D1A7: gf_hevc_read_vps_bs_internal (in /out/fuzz_probe_analyze)
-==109==    by 0x570CFD: gf_hevc_parse_nalu_bs (in /out/fuzz_probe_analyze)
+==109==    at 0x58305C: hev_parse_vps_extension 
+==109==    by 0x56D1A7: gf_hevc_read_vps_bs_internal 
+==109==    by 0x570CFD: gf_hevc_parse_nalu_bs 
 \end{verbatim}
 
 
@@ -108,3 +108,19 @@ Non abbiamo trovato quindi risultati da condividere con il relativo sviluppatore
 
 OpenSC fornisce un insieme di librerie e strumenti per l’interazione con smart card. L’obiettivo principale del progetto è supportare le smart card che implementano funzionalità crittografiche, favorendone l’impiego in applicazioni orientate alla sicurezza, come l’autenticazione, la cifratura della posta elettronica e la firma digitale.
 
+L'analisi di questo programma ha rivelato 16 crashes, e in particolare 3 bug: Use of uninitialised value, Invalid read e Conditional jump or move depends on uninitialised value(s). 
+Generalmente Valgrind utilizza queste diciture per indicare: 
+\begin{itemize}
+    \item Conditional jump or move depends on uninitialised value quando una condizione di salto o di assegnamento dipende da un valore indefinito - il comportamento del programma diventa imprevedibile;
+    \item Use of unitialized value quando una funzione riceve in ingresso uno o più parametri non inizializzati, compromettendo l’esecuzione del codice all’interno della funzione stessa;
+    \item Invalid Read ovvero operazioni di lettura o scrittura che superano i limiti del buffer allocato. In questo scenario, l’accesso a memoria esterna al buffer risulta pericoloso, in quanto il contenuto non è definito e può generare errori difficili da individuare.
+\end{itemize}
+ 
+\begin{figure}[htbp]        
+  \centering               
+  \includegraphics[width=0.7\textwidth]{immagini/valgrind-error.jpg}  
+  \caption{Errore di Conditional jump su Valgrind}  
+  \label{fig:valgrind-error}      
+\end{figure}
+
+Errori come gli Invalid read spesso provocano l’arresto del programma, compromettendone la funzionalità. Poiché OpenSC gestisce smart card, operazioni crittografiche e sistemi di autenticazione, la presenza di bug di memoria può avere conseguenze gravi. L’uso di memoria non inizializzata può consentire la lettura di dati sensibili già presenti (ad esempio password, chiavi o token), mentre istruzioni condizionali dipendenti da valori non inizializzati possono essere manipolate per alterare il flusso logico in modo dannoso. Di conseguenza, anche se non tutte le anomalie rilevate si traducono immediatamente in exploit, esse rappresentano comunque un rischio significativo per la sicurezza.
