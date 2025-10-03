@@ -71,13 +71,6 @@ Questa architettura consente a QMSan di mantenere un buon compromesso tra accura
 
 Valgrind è un framework di analisi dinamica popolare per il debugging di applicazioni scritte in linguaggi a basso livello come C++ e C. La capacità di rilevare errori di memoria come accessi fuori dai limiti, utilizzo di memoria non inizializzata e perdite di memoria sono tra le sue caratteristiche principali \cite{ref14}, \cite{ref15}. Tuttavia, la capacità di creare uno stack trace preciso e affidabile in caso di crash è tra le caratteristiche più importanti del debugging avanzato. Quando un programma si arresta in modo anomalo, identificare esattamente dove si è verificato l'errore è fondamentale per comprendere la causa del problema e creare una correzione efficace.
 
-\begin{figure}[htbp]        
-  \centering               
-  \includegraphics[width=0.4\textwidth]{immagini/valgrind.jpg}  
-  \caption{Logo di Valgrind}  
-  \label{fig:valgrind}      
-\end{figure}
-
 Valgrind monitora l'esecuzione del programma in un ambiente virtualizzato e traccia ogni operazione di memoria. Questa modalità consente allo strumento di mantenere informazioni accurate sul contesto di ogni istruzione eseguita, inclusi i registri della CPU e i puntatori di stack. Ciò evita le ambiguità che si verificano spesso durante un crash normale del sistema. Ciò significa che Valgrind può fornire un backtrace accurato e coerente anche in presenza di buffer overflow o corruzioni di memoria, mostrando i parametri passati e gli indirizzi di ritorno della sequenza di chiamate di funzione che ha causato il crash.
 
 In contesti di testing automatizzato e di fuzzing, dove i crash possono verificarsi in modo imprevisto e su percorsi di codice poco esplorati, Valgrind è uno strumento molto utile. Questo perché ha la capacità di creare uno stack affidabile. In particolare, per quanto riguarda i valori non definiti \cite{ref10}. Lo stack trace creato da Valgrind non solo consente di identificare rapidamente il punto di origine dell'errore, ma fornisce anche informazioni utili per ottimizzare le strategie di fuzzing o per creare nuovi sanitizer nei workflow sperimentali. In particolare, Valgrind garantisce una tracciabilità completa, rendendo possibile la riproduzione del bug e la verifica della sua natura in modo affidabile. Ciò lo distingue dai crash comuni, in cui lo stack può essere corrotto o parzialmente leggibile.
@@ -171,6 +164,25 @@ Nell’ambito di questo tirocinio, l’FTS è stato impiegato per verificare la 
 \subsection{OSS-Fuzz}
 
 Oss-Fuzz è un servizio di fuzzing continuo fornito da Google per progetti di tipo open-source. Il suo lavoro è quello di ottimizzare le esecuzioni di molteplici fuzzer su build strumentate e coordinare la raccolta, deduplicazione e segnalazione dei crashes. Esegue quindi testing su larga scala ed invia report riproducibili e tracciabili ai manutentori dei progetti. Questo approccio permette di scoprire vulnerabilità reali in modo proattivo, migliorando la qualità del software e fornendo un ambiente di testing continuo e standardizzato. 
+
+Nasce nel 2016, a seguito della scoperta della vulnerabilità Heartbleed in OpenSSL, uno dei programmi più popolari per la crittazione di traffico web e avendo quindi il potenziale di coinvolgere tutti gli utenti di Internet \cite{ref30}. Questo bug si rivelò essere un semplice caso di buffer overflow. Google crea OSS-Fuzz per riempire questo vuoto, dalla sua implementazione è diventato un servizio critico per la comunità open-sorce, espandendo il proprio reach oltre ai linguaggi di C/C++ ed includendone altri come Go, Rust e Python. Nel corso degli anni è riuscto ad identificare e correggere oltre 10.000 vulnerabilità.
+
+\begin{figure}[htbp]        
+  \centering               
+  \includegraphics[width=0.7\textwidth]{immagini/oss-fuzz_stats.jpg}  
+  \caption{Statistiche relative ad OSS-Fuzz \cite{ref31}}  
+  \label{fig:oss-fuzz_stats}      
+\end{figure}
+
+Il processo di OSS-Fuzz si struttura nel seguente modo:
+\begin{enumerate}
+  \item Inizialmente, lo sviluppatore crea i fuzz target, che sono piccoli programmi che funzionano con le librerie del progetto e ricevono sequenze di dati modificate o create casualmente. I file di configurazione di build vengono quindi definiti e inviati nella repository ufficiale di OSS-Fuzz;
+  \item A questo punto, il servizio di Cloud Build interviene sincronizzando il codice sorgente del progetto upstream e compilandolo con i fuzzer, creando così i binari eseguibili. Un bucket di Google Cloud Storage (GCS), che funge da archivio centralizzato, contiene tali oggetti;
+  \item ClusterFuzz, il motore che esegue il fuzzing su larga scala, scarica e esegue i fuzzer in modo distribuito. Questo apre automaticamente un ticket all'interno dell'issue tracker Monorail in caso di crash o comportamenti anomali, allegando log, input di riproduzione e stack trace utili all'analisi. Inoltre, il sistema controlla regolarmente se i bug segnalati persistono anche dopo le correzioni;
+  \item Sheriffbot interviene anche per rispettare le scadenze e risolvere le vulnerabilità tempestivamente. Successivamente alle segnalazioni, lo sviluppatore può correggere i bug e assegnare le patch al progetto originario. Il ciclo ricomincia automaticamente, consentendo di verificare l'efficacia della riparazione e di mantenere il software costantemente testato;
+\end{enumerate}
+
+In questo modo, OSS-Fuzz implementa un modello di continuous fuzzing, integrando compilazione, testing e gestione dei bug in un processo completamente automatizzato, il che riduce notevolmente il rischio di vulnerabilità non individuate.
 
 \begin{figure}[htbp]        
   \centering               

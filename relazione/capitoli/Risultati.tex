@@ -8,8 +8,36 @@ Per la ricerca ho usato parole chiave come l'indirizzo di crash e le prime voci 
 
 Di seguito vengono riportati i crash riscontrati durante le campagne di fuzzing.
 
+\begin{table}[ht]
+  \centering
+  \caption{Numero Crashes trovati suddivisi per programma}
+  \label{tab:recap-crashes}
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Programma} & \textbf{} \\
+    \midrule
+    gpac    & 33 \\
+    libredwg & 437 \\
+    libucl  & 191 \\
+    opensc  & 16 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Osserviamo che ci sono grandi variazioni tra programmi diversi: libredwg è il programma che ha riscontrato più crashes in assoluto, molti però erano non riproducibili o con stack trace identica a precedenti.
+Il fatto che il numero dei crashes trovato fosse così superiore agli altri non ha comportato la scoperta di un numero maggiore di bug ma semplicemente un lavoro più pesante nel processo di deduplicazione. 
+
+Al secondo posto troviamo libucl, in cui abbiamo trovato 191 crashes, principalmente di tipo Segmentation Fault e quindi non relativi ad errori di tipo UUM.
+Sebbene non siano errori di memoria, sono comunque rilevanti da un punto di vista funzionale, significa infatti che gli input provocano la terminazione del programma, che è un problema di per sè. 
+
+Vediamo poi gpac, in cui abbiamo trovato un errore di tipo UUM ( ovvero Conditional jump or move depends on uninitialised value) , sebbeno principalmente gli errori trovati fossero di tpo SEGFAULT. 
+
+Infine, analizziamo OpenSC, programma di grandezza maggiore rispetto ai precedenti, in cui abbiamo trovato 16 crashes, che però si rivelano i più efficaci, infatti 3 di questi si sono rivelati unique. 
+
 \subsection{OpenSC}
-I crash principali per \texttt{OpenSC} sono i seguenti:
+
+Come vedremo in seguito in maggiore dettaglio OpenSc è un insieme di librerie utilizzate per funzioni crittografiche.
+I crash unici trovati, una volta rimossi quelli non riproducibili e quelli già reportati, per \texttt{OpenSC} sono i seguenti:
 
 \begin{verbatim}
 Use of uninitialised value of size 8
@@ -28,8 +56,12 @@ Conditional jump or move depends on uninitialised value(s)
 ==118==    by 0x13B48E: build_argv (in /out/fuzz_pkcs15init)
 \end{verbatim}
 
-\subsection{libucl}
-I crash principali per \texttt{libucl} sono:
+\subsection{LibUCL}
+
+LibUCL è una libreria progettata per il parsing e la generazione del Universal Configuration Language (UCL), un linguaggio di configurazione orientato all’automazione e al tempo stesso leggibile da esseri umani.
+I principali vantaggi offerti da UCL sono leggibilità e modificabilità manuale, con supporto ai commenti, parsabilità automatica da parte delle macchine, possibilità di conversione verso e da altri formati diffusi come YAML e JSON, supporto a macro e file di inclusione, parser estremamente veloce.
+
+I crash unici trovati, una volta rimossi quelli non riproducibili e quelli già reportati, per \texttt{libucl} sono i seguenti:
 
 \begin{verbatim}
 ==18== Invalid read of size 8
@@ -49,7 +81,12 @@ I crash principali per \texttt{libucl} sono:
 \end{verbatim}
 
 \subsection{GPAC}
-Il crash principale riscontrato in \texttt{GPAC} è il seguente:
+
+GPAC è un framework multimediale open-source, progettato con particolare attenzione alla modularità e alla conformità agli standard. Esso offre un insieme di strumenti per l’elaborazione, l’ispezione, l’impacchettamento, lo streaming, la riproduzione e l’interazione con contenuti multimediali di diversa natura.
+Tali contenuti possono includere combinazioni di audio, video, sottotitoli, metadati, grafica scalabile, media cifrati, grafica 2D/3D ed ECMAScript.
+GPAC è particolarmente noto per le sue avanzate capacità di gestione dei formati MP4/ISOBMFF, che lo hanno reso uno strumento di riferimento non solo per gli appassionati di video, ma anche per ricercatori accademici, enti di standardizzazione e professionisti del settore della radiodiffusione.
+
+I crash unici trovati, una volta rimossi quelli non riproducibili e quelli già reportati, per \texttt{gpac} sono i seguenti:
 
 \begin{verbatim}
 ==109== Conditional jump or move depends on uninitialised value(s)
@@ -58,4 +95,16 @@ Il crash principale riscontrato in \texttt{GPAC} è il seguente:
 ==109==    by 0x570CFD: gf_hevc_parse_nalu_bs (in /out/fuzz_probe_analyze)
 \end{verbatim}
 
-\section{Case Study: GPAC}
+
+\subsection{LibreDWG}
+
+LibreDWG è una libreria C libera progettata per leggere e scrivere file nel formato DWG. Attualmente, il decoder della libreria è in grado di leggere tutte le versioni del formato DWG, con alcune limitazioni solo per oggetti avanzati introdotti a partire dalla versione R2010. Il writer, invece, supporta pienamente le versioni R1.4–R2000.
+
+In un periodo successivo all'analisi dei crash unici trovati, abbiamo constatato che i problemi precedentemente rilevati all'aggiornamento della repository Github del progetto fossero da una parte stati corretti e dall'altra non riproducibili. 
+Non abbiamo trovato quindi risultati da condividere con il relativo sviluppatore. 
+
+
+\section{Case Study: OpenSC}
+
+OpenSC fornisce un insieme di librerie e strumenti per l’interazione con smart card. L’obiettivo principale del progetto è supportare le smart card che implementano funzionalità crittografiche, favorendone l’impiego in applicazioni orientate alla sicurezza, come l’autenticazione, la cifratura della posta elettronica e la firma digitale.
+

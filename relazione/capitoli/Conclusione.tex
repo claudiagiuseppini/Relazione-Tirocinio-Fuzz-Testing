@@ -1,1 +1,10 @@
 \chapter{Conclusione}
+
+In questo lavoro di tesi sono stati introdotti i concetti fondamentali di errori software, sanitizers e fuzzing, necessari per comprendere le attività svolte durante il tirocinio. L’importanza di queste tecniche è confermata anche dal fatto che, nel solo 2020, il software mal progettato ha generato perdite economiche per 2,08 miliardi di dollari negli Stati Uniti, a dimostrazione della rilevanza di strumenti per l’individuazione precoce dei bug \cite{ref32}.
+
+L’attività sperimentale ha portato all’individuazione di un numero elevato di crash. Molti di essi si sono rivelati duplicati o non riproducibili, e sono quindi stati eliminati poiché non rappresentativi di vulnerabilità effettive. Successivamente, l’analisi ha permesso di filtrare anche i bug già noti agli sviluppatori, non rilevanti ai fini di una nuova segnalazione.
+
+I bug rimanenti costituiscono il vero contributo di questo tirocinio: vulnerabilità concrete e potenzialmente sfruttabili da attaccanti. Ciò evidenzia come, all’interno di librerie e applicazioni largamente utilizzate a livello globale, possano ancora celarsi punti deboli in grado di avere conseguenze significative in termini di sicurezza.
+Oltre a rilevare bug critici, abbiamo anche testato il sanitizer QMSan, provando che questo sia capace ed efficace nella rilevazione di UUM bugs. 
+
+Va sottolineato che i risultati presentati sono frutto di un periodo limitato di tre mesi di lavoro. È quindi plausibile che ulteriori vulnerabilità restino da individuare. Per questo motivo, appare auspicabile un continuo sviluppo e consolidamento di piattaforme di sicurezza automatizzata come OSS-Fuzz, le quali svolgono un ruolo sempre più cruciale nella protezione degli utenti finali e nell’evoluzione del software open source.

@@ -1,5 +1,14 @@
 \begin{thebibliography}{10}
 
+\bibitem{ref30}
+Documentation for oss-fuzz.
+\newblock Available from: \url{https://google.github.io/oss-fuzz/}.
+
+\bibitem{ref32}
+Forbes, costly code: The price of software errors.
+\newblock Available from:
+  \url{https://www.forbes.com/councils/forbestechcouncil/2023/12/26/costly-code-the-price-of-software-errors/}.
+
 \bibitem{ref28}
 Gpac issues.
 \newblock Available from: \url{https://github.com/gpac/gpac/issues}.
@@ -19,6 +28,10 @@ Memcheck: a memory error detector.
 \bibitem{ref25}
 Opensc issues.
 \newblock Available from: \url{https://github.com/OpenSC/OpenSC/issues}.
+
+\bibitem{ref31}
+Oss-fuzz introspector.
+\newblock Available from: \url{https://introspector.oss-fuzz.com/}.
 
 \bibitem{ref24}
 \textsc{AFL++}.

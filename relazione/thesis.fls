@@ -1,6 +1,6 @@
-PWD c:\Users\giuse\Relazione-Tirocinio-Fuzz-Testing\relazione
+PWD c:\Users\giuse\Fuzz-Testing\relazione
 INPUT C:\Users\giuse\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\giuse\Relazione-Tirocinio-Fuzz-Testing\relazione\thesis.tex
+INPUT c:\Users\giuse\Fuzz-Testing\relazione\thesis.tex
 OUTPUT thesis.log
 INPUT .\sapthesis.cls
 INPUT sapthesis.cls
@@ -289,13 +289,6 @@ INPUT .\immagini\asan.jpg
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr12.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\giuse\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr10.tfm
-INPUT .\immagini\valgrind.jpg
-INPUT .\immagini\valgrind.jpg
-INPUT .\immagini\valgrind.jpg
-INPUT .\immagini\valgrind.jpg
-INPUT .\immagini\valgrind.jpg
-INPUT .\immagini\valgrind.jpg
-INPUT .\immagini\valgrind.jpg
 INPUT .\immagini\fuzzing.jpg
 INPUT .\immagini\fuzzing.jpg
 INPUT .\immagini\fuzzing.jpg
@@ -310,6 +303,13 @@ INPUT .\immagini\AFL++.jpg
 INPUT .\immagini\AFL++.jpg
 INPUT .\immagini\AFL++.jpg
 INPUT .\immagini\AFL++.jpg
+INPUT .\immagini\oss-fuzz_stats.jpg
+INPUT .\immagini\oss-fuzz_stats.jpg
+INPUT .\immagini\oss-fuzz_stats.jpg
+INPUT .\immagini\oss-fuzz_stats.jpg
+INPUT .\immagini\oss-fuzz_stats.jpg
+INPUT .\immagini\oss-fuzz_stats.jpg
+INPUT .\immagini\oss-fuzz_stats.jpg
 INPUT .\immagini\oss-fuzz.jpg
 INPUT .\immagini\oss-fuzz.jpg
 INPUT .\immagini\oss-fuzz.jpg

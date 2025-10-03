@@ -34,55 +34,64 @@ Warning--entry type for "ref27" isn't style-file defined
 --line 337 of file bibliografia.bib
 Warning--entry type for "ref28" isn't style-file defined
 --line 347 of file bibliografia.bib
+Warning--entry type for "ref30" isn't style-file defined
+--line 371 of file bibliografia.bib
+Warning--entry type for "ref31" isn't style-file defined
+--line 381 of file bibliografia.bib
+Warning--entry type for "ref32" isn't style-file defined
+--line 391 of file bibliografia.bib
 Warning--I didn't find a database entry for "ref9"
 Warning--I didn't find a database entry for "12"
 Warning--to sort, need author or key in ref10
+Warning--to sort, need author or key in ref30
+Warning--to sort, need author or key in ref31
 Warning--to sort, need author or key in ref25
 Warning--to sort, need author or key in ref26
 Warning--to sort, need author or key in ref27
 Warning--to sort, need author or key in ref28
+Warning--to sort, need author or key in ref32
 Warning--missing publisher in ref5
 Warning--missing publisher in ref1
 Warning--empty year in ref1
-You've used 28 entries,
+You've used 31 entries,
             3472 wiz_defined-function locations,
-            811 strings with 8774 characters,
-and the built_in function-call counts, 12391 in all, are:
-= -- 1007
-> -- 486
+            820 strings with 9055 characters,
+and the built_in function-call counts, 13210 in all, are:
+= -- 1076
+> -- 489
 < -- 1
-+ -- 253
++ -- 256
 - -- 134
-* -- 551
-:= -- 1480
-add.period$ -- 75
-call.type$ -- 28
-change.case$ -- 165
+* -- 578
+:= -- 1549
+add.period$ -- 81
+call.type$ -- 31
+change.case$ -- 174
 chr.to.int$ -- 0
-cite$ -- 36
-duplicate$ -- 802
-empty$ -- 1202
+cite$ -- 42
+duplicate$ -- 856
+empty$ -- 1316
 format.name$ -- 146
-if$ -- 3008
+if$ -- 3236
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 184
-newline$ -- 134
+int.to.str$ -- 31
+missing$ -- 193
+newline$ -- 146
 num.names$ -- 46
-pop$ -- 686
+pop$ -- 737
 preamble$ -- 1
-purify$ -- 123
+purify$ -- 129
 quote$ -- 0
-skip$ -- 774
+skip$ -- 849
 stack$ -- 0
-substring$ -- 178
-swap$ -- 417
+substring$ -- 193
+swap$ -- 435
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 108
-warning$ -- 8
+type$ -- 120
+warning$ -- 11
 while$ -- 50
-width$ -- 30
-write$ -- 249
-(There were 22 warnings)
+width$ -- 33
+write$ -- 270
+(There were 28 warnings)
