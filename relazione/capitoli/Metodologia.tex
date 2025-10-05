@@ -2,6 +2,29 @@
 
 Questo capitolo descrive le pratiche utilizzate durante lo svolgimento di questo tirocinio. Nella prima parte, delineo l'ambiente di lavoro e spiego come riprodurlo; Nella seconda sezione sono descritte le campagne di fuzzing che sono state eseguite, insieme agli strumenti e ai parametri necessari; Infine, illustro il processo utilizzato per discriminare e raggruppare i crash trovati, che include i metodi di triaging e deduplicazione.
 
+
+\section{Panoramica del Lavoro}
+
+Il workflow del progetto si è sviluppato nel seguente modo:
+
+\begin{enumerate}
+  \item costruzione e verifica dell'ambiente di esecuzione;
+  \item esecuzione di campagne di fuzzing con differenti seed di partenza;
+  \item analisi e validazione dei risultati. 
+\end{enumerate}
+
+In primo luogo, abbiamo quindi costruito l'immagine Docker e creato il container. E' seguito un controllo dell'ambiente di sviluppo; in particolare, che fosse presente il sanitizer che abbiamo scelto, ovvero QMSan, il binario da testare e la cartella con i seed. 
+Questa parte assicura che le istanze di fuzzing siano replicabili e confrontabili.  La prima verifica con la Google Fuzzer Test Suite (FTS) ha verificato che le immagini e la catena eseguono correttamente casi di test elementari (seed "dummy").  I test di validazione e l'allestimento dell'ambiente sono descritti nella Sezione Metodologia - Configurazione dell'Ambiente.
+
+Il secondo blocco è relativo alla strategia di generazione dei seed e all’esecuzione delle campagne.
+Sono state confrontate due strategie principali: seed “dummy” (seed semplici, sintetici) e seed provenienti dal pool mantenuto da OSS-Fuzz, che contengono input già classificati come interesting. 
+La scelta di provare prima i seed “dummy” è motivata dalla necessità di accertare l’integrità del setup senza introdurre complessità esterne; la successiva adozione del corpus di OSS-Fuzz è stata invece determinante per ottenere risultati in target complessi come gpac e opensc.
+Per ciascuna campagna sono stati fissati criteri sperimentali fissi (come durata e risorse assegnate).
+I dettagli sulle campagne e i parametri usati sono riportati nel capitolo Metodologia - Descrizione delle Attività.
+
+Il terzo blocco è relativo alla raccolta, classificazione e verifica dei bug. I crash prodotti dai fuzzers sono prima raggruppati e de-duplicati tramite stack trace e input di riproduzione; successivamente sono analizzati manualmente o tramite strumenti di triage per stabilirne la gravità e la riproducibilità. Quando possibile, i bug sono stati confrontati con i report di OSS-Fuzz per stabilire se fossero già noti. Abbiamo poi aggiornato tutti i programmi al commit github più recente per verificare se gli errori fossero ancora validi. 
+Procedure dettagliate di triage e i criteri di classificazione sono documentati nella sezione Metodologia - Deduplication e Categorizzazione.
+
 \section{Configurazione dell'Ambiente}
 
 Tutti i test sono stati eseguiti su macchine virtuali personali con Ubuntu 22.04.4 LTS. L’ambiente sperimentale impiegato comprende, oltre agli strumenti già citati, i seguenti componenti: Docker, Valgrind, Python e GDB. La scelta di utilizzare Docker come ambiente è soprattutto legata alla riproducibilità dei test, possiamo così controllare che non ci siano variazioni tra macchine diverse. L’infrastruttura di test è stata realizzata mediante più Dockerfile distinti, ciascuno predisposto per una parte specifica del workflow di fuzzing e analisi, in particolare in tre sezioni:
@@ -21,9 +44,9 @@ Questa divisione in file Docker distinti separa le responsabilità (configurazio
 
 \section{Descrizione delle Attività}
 
-La prima parte del tirocinio è stata dedicata a verificare il corretto funzionamento dell’intero setup sperimentale. Ho usato i programmi della Google Fuzzer Test Suite come casi di prova per assicurarmi che immagini, toolchain e harness fossero correttamente configurati e integrati. Per fare ciò ho utilizzato dei seed “dummy” ovvero validi ma perché molto semplici. La durata di queste campagne era solitamente di 24 ore.
+La prima parte del tirocinio è stata dedicata a verificare il corretto funzionamento dell’intero setup sperimentale. Ho usato i programmi della Google Fuzzer Test Suite come casi di prova per assicurarmi che immagini, toolchain e harness fossero correttamente configurati e integrati. Per fare ciò ho utilizzato dei seed “dummy” ovvero validi ma perché molto semplici. La durata di queste campagne era solitamente di 24 ore. I programmi analizzati per questo scopo sono stati: Guetzli, JSON e Re2.
 
-Nella seconda parte ho invece esplorando alcuni programmi di OSS-Fuzz ovvero, gpac, libredwg, libc e opensc. Inizialmente, ho eseguito varie campagne di fuzzing partendo da seed “dummy” ma essendo questi programmi più complicati dei precedenti non ho avuto risultati. Ho successivamente iniziato le campagne di fuzzing da un pool di seed mantenuto da oss-fuzz con dei seed già considerati interesting. Questo è stato un passo essenziale nella scoperta dei bug. La durata di queste campagne era solitamente di 36 ore. 
+Nella seconda parte ho invece esplorando alcuni programmi di OSS-Fuzz ovvero, GPAC, LibreDWG, LibUCL e OpenSC. Inizialmente, ho eseguito varie campagne di fuzzing partendo da seed “dummy” ma essendo questi programmi più complicati dei precedenti non ho avuto risultati. Ho successivamente iniziato le campagne di fuzzing da un pool di seed mantenuto da oss-fuzz con dei seed già considerati interesting. Questo è stato un passo essenziale nella scoperta dei bug. La durata di queste campagne era solitamente di 36 ore. 
 
 \begin{table}[ht]
   \centering
@@ -33,10 +56,10 @@ Nella seconda parte ho invece esplorando alcuni programmi di OSS-Fuzz ovvero, gp
     \toprule
     \textbf{Programma} & \textbf{Binario testato} \\
     \midrule
-    gpac    & \texttt{fuzz\_probe\_analyze} \\
-    libredwg & \texttt{llvmfuzz} \\
-    libucl  & \texttt{ucl\_add\_string\_fuzzer} \\
-    opensc  & \texttt{fuzz\_pkcs15init} \\
+    GPAC    & \texttt{fuzz\_probe\_analyze} \\
+    LibreDWG & \texttt{llvmfuzz} \\
+    LibUCL  & \texttt{ucl\_add\_string\_fuzzer} \\
+    OpenSC  & \texttt{fuzz\_pkcs15init} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -52,7 +75,7 @@ Un esempio di comando per costruire l’immagine è il seguente:
 \texttt{docker build -t libucl\_qmsan .}
 \end{center}
 
-Il comando costruisce un’immagine nominata \texttt{re2\_qmsan} a partire dal Dockerfile nella directory corrente. 
+Il comando costruisce un’immagine nominata \texttt{libucl\_qmsan} a partire dal Dockerfile nella directory corrente. 
 Ripetendo la build con i Dockerfile opportuni si ottengono le immagini per il compiler e per QMSAN.
 
 \subsection{Creazione e avvio del Docker}
@@ -64,7 +87,7 @@ Esempio di comando per avviare un container interattivo:
 \texttt{docker run -it --name libucl\_fuzzing\ libucl\_qmsan bash}
 \end{center}
 
-dove --name re2\_fuzzing assegna un nome al container, re2\_qmsan è l’immagine di partenza, -it bash apre una shell interattiva (bash) dentro il container così da poter lanciare manualmente gli strumenti.
+dove --name libucl\_fuzzing assegna un nome al container, libucl\_qmsan è l’immagine di partenza, -it bash apre una shell interattiva (bash) dentro il container così da poter lanciare manualmente gli strumenti.
 
 \subsection{Avvio di una sessione di Fuzzing con AFL++}
 
@@ -112,7 +135,7 @@ Valgrind fornisce un report dettagliato sugli errori di memoria che può essere 
 
 Poiché le campagne di fuzzing producono spesso molti crash, ho automatizzato la riproduzione in batch e la raccolta degli output in file di log aggregati. Questo facilita la triage: si possono eseguire tutti i crash presenti in /out/1.1/crashes, salvare stdout/stderr e produrre report separati per Valgrind.
 
-\section{Deduplication e Categorizzazione}
+\section{Deduplicazione e Categorizzazione}
 
 Ogni crash è causato da un bug, ma crash differenti possono avere origine dallo stesso errore. Da questa osservazione deriva la necessità di distinguere i crash che dipendono da bug differenti. Il processo di analisi dei crash finalizzato a individuare quelli effettivamente unici prende il nome di bug triaging. Poiché il numero di crash può facilmente raggiungere le migliaia, è fondamentale disporre di un processo automatico in grado di raggrupparli in categorie, così da ottenere un sottoinsieme rappresentativo in cui ogni elemento corrisponde a un bug distinto. Questo processo è noto come bug deduplication e, nella pratica, viene spesso implementato utilizzando come discriminanti l’indirizzo del crash e l’identità dei top-k indirizzi presenti nello stack.
 
@@ -128,25 +151,3 @@ Esistono strumenti già pronti che supportano questo tipo di analisi. La dedupli
 
 Nel mio lavoro ho quindi inizialmente utilizzato uno script Python per eseguire il declustering con k = 5, fornendo come input i log raccolti in precedenza. Questo script nel caso di errori provenienti da molteplici contesti, prende in considerazione solo il primo errore rilevato e suppone che i successivi siano errori a cascata derivante dal primo. Questo è stato fatto non perchè è ciò che accade in ogni situazione ma è quello che viene considerato come vero dagli sviluppatori per semplicità.  Successivamente ho analizzato nel dettaglio i crash unici rimanenti, studiandone la tipologia e gli ultimi indirizzi nello stack. Ho successivamente diviso i vari gruppi secondo l’indizzo di crash. 
 
-\section{Panoramica del Lavoro}
-
-Questa sezione vuole esporre una visione d'insieme ai processi descritti precedentemente. 
-Il workflow del progetto si è sviluppato nel seguente modo:
-
-\begin{enumerate}
-  \item costruzione e verifica dell'ambiente di esecuzione;
-  \item esecuzione di campagne di fuzzing con differenti seed di partenza;
-  \item analisi e validazione dei risultati. 
-\end{enumerate}
-
-In primo luogo, abbiamo quindi costruito l'immagine Docker e creato il container. E' seguito un controllo dell'ambiente di sviluppo; in particolare, che fosse presente il sanitizer che abbiamo scelto, ovvero QMSan, il binario da testare e la cartella con i seed. 
-Questa parte assicura che le istanze di fuzzing siano replicabili e confrontabili.  La prima verifica con la Google Fuzzer Test Suite (FTS) ha verificato che le immagini e la catena eseguono correttamente casi di test elementari (seed "dummy").  I test di validazione e l'allestimento dell'ambiente sono descritti nella Sezione Metodologia - Configurazione dell'Ambiente.
-
-Il secondo blocco è relativo alla strategia di generazione dei seed e all’esecuzione delle campagne.
-Sono state confrontate due strategie principali: seed “dummy” (seed semplici, sintetici) e seed provenienti dal pool mantenuto da OSS-Fuzz, che contengono input già classificati come interesting. 
-La scelta di provare prima i seed “dummy” è motivata dalla necessità di accertare l’integrità del setup senza introdurre complessità esterne; la successiva adozione del corpus di OSS-Fuzz è stata invece determinante per ottenere risultati in target complessi come gpac e opensc.
-Per ciascuna campagna sono stati fissati criteri sperimentali fissi (come durata e risorse assegnate).
-I dettagli sulle campagne e i parametri usati sono riportati nel capitolo Metodologia - Descrizione delle Attività.
-
-Il terzo blocco è relativo alla raccolta, classificazione e verifica dei bug. I crash prodotti dai fuzzers sono prima raggruppati e de-duplicati tramite stack trace e input di riproduzione; successivamente sono analizzati manualmente o tramite strumenti di triage per stabilirne la gravità e la riproducibilità. Quando possibile, i bug sono stati confrontati con i report di OSS-Fuzz per stabilire se fossero già noti. Abbiamo poi aggiornato tutti i programmi al commit github più recente per verificare se gli errori fossero ancora validi. 
-Procedure dettagliate di triage e i criteri di classificazione sono documentati nella sezione Metodologia - Deduplication e Categorizzazione.

@@ -124,3 +124,5 @@ Generalmente Valgrind utilizza queste diciture per indicare:
 \end{figure}
 
 Errori come gli Invalid read spesso provocano l’arresto del programma, compromettendone la funzionalità. Poiché OpenSC gestisce smart card, operazioni crittografiche e sistemi di autenticazione, la presenza di bug di memoria può avere conseguenze gravi. L’uso di memoria non inizializzata può consentire la lettura di dati sensibili già presenti (ad esempio password, chiavi o token), mentre istruzioni condizionali dipendenti da valori non inizializzati possono essere manipolate per alterare il flusso logico in modo dannoso. Di conseguenza, anche se non tutte le anomalie rilevate si traducono immediatamente in exploit, esse rappresentano comunque un rischio significativo per la sicurezza.
+
+Gli errori trovati sono nuovi, non ancora presenti nella sezione Issues del github di OpenSC \cite{ref25}. Ci siamo inoltre assicurati che questi siano riproducibili, ovvero aggiornando l'ultimo commit disponbile questi errori sussistono. Dato quanto detto, abbiamo proceduto con la divulgazione responsabile dei suddetti \cite{ref23}.

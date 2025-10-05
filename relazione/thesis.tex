@@ -32,6 +32,12 @@
 \maketitle
 
 \begin{abstract}
+La sicurezza informatica rappresenta il tema centrale del presente tirocinio, incentrato sull’analisi dinamica delle vulnerabilità software mediante l’impiego di tecniche di fuzzing e sanitizer. L’obiettivo principale è stato l’individuazione di errori di tipo Use-of-Uninitialized Memory (UUM) e di altre anomalie generalmente non rilevabili dagli strumenti tradizionali, contribuendo così alla riduzione dei rischi di sicurezza nei software open source ampiamente utilizzati.
+
+Le campagne di fuzzing, ciascuna della durata di 36 ore, hanno prodotto complessivamente oltre 600 crash in diversi progetti, tra cui GPAC, LibreDWG, LibUCL e OpenSC. Dopo un accurato processo di deduplicazione e verifica, sono stati identificati alcuni bug unici e non precedentemente segnalati, in particolare all’interno del progetto OpenSC, dove sono emerse vulnerabilità legate all’uso di memoria non inizializzata e a letture non valide. Gli sviluppatori sono stati informati mediante una procedura di responsible disclosure.
+
+I risultati ottenuti dimostrano che l’approccio combinato di fuzzing e sanitizer, in particolare con l’utilizzo di QMSan, si è rivelato altamente efficace nell’individuazione di bug complessi. Il tirocinio ha inoltre messo in evidenza l’importanza della collaborazione nella comunità open source e il ruolo cruciale delle tecniche di analisi automatica nella costruzione di un ecosistema software più sicuro e affidabile.
+
 \end{abstract}
 
 \tableofcontents

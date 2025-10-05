@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.29)  3 OCT 2025 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.29)  5 OCT 2025 18:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -653,13 +653,13 @@ File: immagini/AFL++.jpg Graphic file (type jpg)
 Package pdftex.def Info: immagini/AFL++.jpg  used on input line 140.
 (pdftex.def)             Requested size: 316.80121pt x 198.26662pt.
  [10] [11 <./immagini/AFL++.jpg>]
-<immagini/oss-fuzz_stats.jpg, id=316, 965.40675pt x 344.487pt>
+<immagini/oss-fuzz_stats.jpg, id=317, 965.40675pt x 344.487pt>
 File: immagini/oss-fuzz_stats.jpg Graphic file (type jpg)
 <use immagini/oss-fuzz_stats.jpg>
 Package pdftex.def Info: immagini/oss-fuzz_stats.jpg  used on input line 172.
 (pdftex.def)             Requested size: 277.19879pt x 98.91571pt.
  [12 <./immagini/oss-fuzz_stats.jpg>]
-<immagini/oss-fuzz.jpg, id=330, 455.45157pt x 227.34938pt>
+<immagini/oss-fuzz.jpg, id=332, 455.45157pt x 227.34938pt>
 File: immagini/oss-fuzz.jpg Graphic file (type jpg)
 <use immagini/oss-fuzz.jpg>
 Package pdftex.def Info: immagini/oss-fuzz.jpg  used on input line 189.
@@ -668,57 +668,44 @@ Package pdftex.def Info: immagini/oss-fuzz.jpg  used on input line 189.
 
 ]
 Capitolo 3.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 10.
-(C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+[15]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 33.
+ (C:\Users\giuse\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [15] [16]
-Overfull \hbox (18.07048pt too wide) in paragraph at lines 93--94
+ [16] [17]
+Overfull \hbox (18.07048pt too wide) in paragraph at lines 116--117
 \T1/lmr/m/n/10.95 (-20) Quando AFL se-gna-la un crash vie-ne in-se-ri-to al-l'in-ter-no del-la car-tel-la /out/default/crashes
  []
 
-[17] [18]) (capitoli/Risultati.tex [19] [20]
+[18] [19]) (capitoli/Risultati.tex [20]
 Capitolo 4.
 [21
 
 ] [22] [23]
-<immagini/valgrind-error.jpg, id=392, 544.434pt x 795.57225pt>
+<immagini/valgrind-error.jpg, id=394, 544.434pt x 795.57225pt>
 File: immagini/valgrind-error.jpg Graphic file (type jpg)
 <use immagini/valgrind-error.jpg>
 Package pdftex.def Info: immagini/valgrind-error.jpg  used on input line 121.
 (pdftex.def)             Requested size: 277.19879pt x 405.08095pt.
-) (capitoli/Conclusione.tex [24 <./immagini/valgrind-error.jpg>] [25] [26
+ [24 <./immagini/valgrind-error.jpg>]) (capitoli/Conclusione.tex [25] [26
 
 ]
 Capitolo 5.
 ) [27] [28
 
 ] (thesis.bbl
-Underfull \hbox (badness 7344) in paragraph at lines 8--11
-[]\T1/lmr/m/n/10.95 (+20) Forbes, co-stly co-de: The pri-ce of soft-ware er-rors.  Avai-la-ble
- []
-
-
-Underfull \hbox (badness 2418) in paragraph at lines 8--11
-\T1/lmr/m/n/10.95 (+20) from: []$\T1/lmtt/m/n/10.95 https : / / www . forbes . com / councils / forbestechcouncil / 2023 / 12 /
- []
-
-
-Underfull \hbox (badness 1910) in paragraph at lines 25--27
-[]\T1/lmr/m/n/10.95 (+20) Memcheck: a me-mo-ry er-ror de-tec-tor.  []$\T1/lmtt/m/n/10.95 https : / / valgrind . org / docs /
- []
-
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-[29
+ [29
 
 
-]) [30] (thesis.aux)
+]) [30] [31] (thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -728,20 +715,20 @@ L3 programming layer <2024-01-04>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 12678241AF0FF581C92FB21AD74A719E;4237.
+(rerunfilecheck)             Checksum: 6719E9FF76E4AC7C8148764564B256CC;4242.
  ) 
 Here is how much of TeX's memory you used:
- 16404 strings out of 474486
- 268588 string characters out of 5743755
- 1938542 words of memory out of 5000000
- 38104 multiletter control sequences out of 15000+600000
+ 16407 strings out of 474486
+ 268612 string characters out of 5743755
+ 1939542 words of memory out of 5000000
+ 38105 multiletter control sequences out of 15000+600000
  647224 words of font info for 185 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,131p,1041b,748s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/giuse/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on thesis.pdf (36 pages, 1337255 bytes).
+Output written on thesis.pdf (37 pages, 1341191 bytes).
 PDF statistics:
- 529 PDF objects out of 1000 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
+ 543 PDF objects out of 1000 (max. 8388607)
+ 125 named destinations out of 1000 (max. 500000)
  54044 words of extra memory for PDF output out of 61914 (max. 10000000)
 

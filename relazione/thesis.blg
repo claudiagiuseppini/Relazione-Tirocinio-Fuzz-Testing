@@ -15,83 +15,83 @@ Warning--entry type for "ref4" isn't style-file defined
 Warning--entry type for "ref8" isn't style-file defined
 --line 93 of file bibliografia.bib
 Warning--entry type for "ref14" isn't style-file defined
---line 171 of file bibliografia.bib
+--line 173 of file bibliografia.bib
 Warning--entry type for "ref15" isn't style-file defined
---line 183 of file bibliografia.bib
+--line 185 of file bibliografia.bib
 Warning--entry type for "ref17" isn't style-file defined
---line 211 of file bibliografia.bib
+--line 213 of file bibliografia.bib
 Warning--entry type for "ref18" isn't style-file defined
---line 227 of file bibliografia.bib
+--line 229 of file bibliografia.bib
 Warning--entry type for "ref23" isn't style-file defined
---line 293 of file bibliografia.bib
+--line 295 of file bibliografia.bib
 Warning--entry type for "ref24" isn't style-file defined
---line 305 of file bibliografia.bib
+--line 307 of file bibliografia.bib
 Warning--entry type for "ref25" isn't style-file defined
---line 317 of file bibliografia.bib
+--line 319 of file bibliografia.bib
 Warning--entry type for "ref26" isn't style-file defined
---line 327 of file bibliografia.bib
+--line 329 of file bibliografia.bib
 Warning--entry type for "ref27" isn't style-file defined
---line 337 of file bibliografia.bib
+--line 339 of file bibliografia.bib
 Warning--entry type for "ref28" isn't style-file defined
---line 347 of file bibliografia.bib
+--line 349 of file bibliografia.bib
 Warning--entry type for "ref30" isn't style-file defined
---line 371 of file bibliografia.bib
+--line 373 of file bibliografia.bib
 Warning--entry type for "ref31" isn't style-file defined
---line 381 of file bibliografia.bib
+--line 383 of file bibliografia.bib
 Warning--entry type for "ref32" isn't style-file defined
---line 391 of file bibliografia.bib
+--line 393 of file bibliografia.bib
+Warning--entry type for "ref34" isn't style-file defined
+--line 419 of file bibliografia.bib
 Warning--I didn't find a database entry for "ref9"
 Warning--I didn't find a database entry for "12"
-Warning--to sort, need author or key in ref10
 Warning--to sort, need author or key in ref30
 Warning--to sort, need author or key in ref31
 Warning--to sort, need author or key in ref25
 Warning--to sort, need author or key in ref26
 Warning--to sort, need author or key in ref27
 Warning--to sort, need author or key in ref28
-Warning--to sort, need author or key in ref32
 Warning--missing publisher in ref5
 Warning--missing publisher in ref1
 Warning--empty year in ref1
-You've used 31 entries,
+You've used 32 entries,
             3472 wiz_defined-function locations,
-            820 strings with 9055 characters,
-and the built_in function-call counts, 13210 in all, are:
-= -- 1076
-> -- 489
+            825 strings with 9151 characters,
+and the built_in function-call counts, 13680 in all, are:
+= -- 1114
+> -- 508
 < -- 1
-+ -- 256
-- -- 134
-* -- 578
-:= -- 1549
-add.period$ -- 81
-call.type$ -- 31
-change.case$ -- 174
++ -- 264
+- -- 140
+* -- 593
+:= -- 1629
+add.period$ -- 86
+call.type$ -- 32
+change.case$ -- 180
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 856
-empty$ -- 1316
-format.name$ -- 146
-if$ -- 3236
+cite$ -- 41
+duplicate$ -- 883
+empty$ -- 1360
+format.name$ -- 152
+if$ -- 3342
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 193
-newline$ -- 146
-num.names$ -- 46
-pop$ -- 737
+int.to.str$ -- 32
+missing$ -- 199
+newline$ -- 153
+num.names$ -- 52
+pop$ -- 754
 preamble$ -- 1
-purify$ -- 129
+purify$ -- 134
 quote$ -- 0
-skip$ -- 849
+skip$ -- 874
 stack$ -- 0
-substring$ -- 193
-swap$ -- 435
+substring$ -- 199
+swap$ -- 450
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 120
-warning$ -- 11
-while$ -- 50
-width$ -- 33
-write$ -- 270
-(There were 28 warnings)
+type$ -- 124
+warning$ -- 9
+while$ -- 56
+width$ -- 34
+write$ -- 283
+(There were 27 warnings)

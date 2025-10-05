@@ -4,11 +4,6 @@
 Documentation for oss-fuzz.
 \newblock Available from: \url{https://google.github.io/oss-fuzz/}.
 
-\bibitem{ref32}
-Forbes, costly code: The price of software errors.
-\newblock Available from:
-  \url{https://www.forbes.com/councils/forbestechcouncil/2023/12/26/costly-code-the-price-of-software-errors/}.
-
 \bibitem{ref28}
 Gpac issues.
 \newblock Available from: \url{https://github.com/gpac/gpac/issues}.
@@ -18,12 +13,8 @@ Libredwg issues.
 \newblock Available from: \url{https://github.com/LibreDWG/libredwg/issues}.
 
 \bibitem{ref26}
-libucl issues.
+Libucl issues.
 \newblock Available from: \url{https://github.com/vstakhov/libucl/issues}.
-
-\bibitem{ref10}
-Memcheck: a memory error detector.
-\newblock \url{https://valgrind.org/docs/memcheck2005.pdf}.
 
 \bibitem{ref25}
 Opensc issues.
@@ -56,6 +47,11 @@ Oss-fuzz introspector.
   (2020).
 \newblock Available from:
   \url{https://www.usenix.org/conference/woot20/presentation/fioraldi}.
+
+\bibitem{ref34}
+\textsc{Foundation, H.}
+\newblock The heartbleed bug explained.
+\newblock Available from: \url{https://heartbleed.com/}.
 
 \bibitem{ref23}
 \textsc{GitLab}.
@@ -115,6 +111,12 @@ Oss-fuzz introspector.
 \newblock Addresssanitizer: A fast address sanity checker.
 \newblock In \emph{USENIX Annual Technical Conference (ATC)} (2012).
 
+\bibitem{ref32}
+\textsc{Simonova, M.}
+\newblock Forbes, costly code: The price of software errors.
+\newblock Available from:
+  \url{https://www.forbes.com/councils/forbestechcouncil/2023/12/26/costly-code-the-price-of-software-errors/}.
+
 \bibitem{ref19}
 \textsc{Song, D., Lettner, J., Rajasekaran, P., Na, Y., Volckaert, S., Larsen,
   P., and Franz, M.}
@@ -140,6 +142,11 @@ Oss-fuzz introspector.
 \textsc{Szekeres, L., Payer, M., Wei, T., and Song, D.}
 \newblock Sok: Eternal war in memory.
 \newblock In \emph{IEEE Symposium on Security and Privacy}, pp. 48--62 (2013).
+
+\bibitem{ref10}
+\textsc{Valgrind}.
+\newblock Memcheck: a memory error detector.
+\newblock \url{https://valgrind.org/docs/memcheck2005.pdf}.
 
 \bibitem{ref14}
 \textsc{Valgrind}.
