@@ -161,12 +161,6 @@ The process included:
 
 This step was essential because many different fuzzing inputs can trigger the same underlying software defect.
 
-## Responsible Disclosure
-
-Previously unknown vulnerabilities were communicated to the maintainers of the affected open-source projects following a **responsible disclosure** process.
-
-No exploit development is included in this project.
-
 ## What I Learned
 
 This project provided practical experience with:
